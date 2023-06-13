@@ -2,7 +2,7 @@
   "name": "rss-css-selectors",
   "version": "1.0.0",
   "description": "rss-css-selectors",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1",

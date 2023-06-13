@@ -1,13 +1,21 @@
-class GameModel {
-  private currentLevel: number;
+import { LocalStorage } from 'src/enums/LocalStorage';
+import { localStorageManager } from 'src/services/LocalStorageManager';
+import { Observable } from 'src/services/Observable';
 
-  constructor() {}
+export class GameModel {
+  private currentLevel: Observable<number>;
 
-  public getCurrentLevel(): number {
-    return this.currentLevel;
+  constructor() {
+    this.currentLevel = new Observable(
+      localStorageManager.getItem(LocalStorage.LEVEL, 1)
+    );
   }
 
-  public setCurrentLevel(number): void {
-    this.currentLevel = 
+  public getCurrentLevel(): number {
+    return this.currentLevel.getValue();
+  }
+
+  public setCurrentLevel(number: number): void {
+    this.currentLevel.notify(number);
   }
 }
