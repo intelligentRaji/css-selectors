@@ -1,6 +1,6 @@
-import { LocalStorage } from 'src/enums/LocalStorage';
-import { localStorageManager } from 'src/services/LocalStorageManager';
-import { Observable } from 'src/services/Observable';
+import { LocalStorage } from '@/enums/LocalStorage';
+import { localStorageManager } from '@/services/LocalStorageManager';
+import { Observable } from '@/services/Observable';
 
 export class GameModel {
   private currentLevel: Observable<number>;

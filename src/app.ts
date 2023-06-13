@@ -1,4 +1,4 @@
-import { GamePresenter } from './presenters/GamePresenter';
+import { GamePresenter } from '@/presenters/GamePresenter';
 
 class App {
   private readonly root: HTMLElement;

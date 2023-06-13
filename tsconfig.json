@@ -1,20 +1,25 @@
 {
+  "include": ["**/*.ts"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "esModuleInterop": true,
+    "baseUrl": "src",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": false,
     "incremental": true,
-    "module": "es2020",
+    "module": "ES2020",
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": true,
     "outDir": "./dist",
+    "rootDir": "./",
     "removeComments": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2017"
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   }
 }

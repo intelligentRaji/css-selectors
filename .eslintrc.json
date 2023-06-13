@@ -14,7 +14,7 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "import"],
   "root": true,
   "rules": {
     "@typescript-eslint/array-type": ["error", { "default": "array" }],
@@ -28,28 +28,19 @@
     "curly": ["warn", "all"],
     "eol-last": "error",
     "import/prefer-default-export": 0,
-    "max-len": [
-      "error",
-      { "code": 120, "ignoreComments": true, "tabWidth": 2 }
-    ],
+    "import/no-unresolved": "error",
+    "max-len": ["error", { "code": 120, "ignoreComments": true, "tabWidth": 2 }],
     "max-lines-per-function": ["error", 40],
     "no-console": 0,
     "no-debugger": 0,
-    "no-multiple-empty-lines": [
-      "error",
-      { "max": 2, "maxBOF": 0, "maxEOF": 1 }
-    ],
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxBOF": 0, "maxEOF": 1 }],
     "no-param-reassign": 1,
     "no-plusplus": 0,
     "no-return-assign": 1,
     "no-template-curly-in-string": "warn",
     "no-unused-vars": 0,
     "object-curly-spacing": ["warn", "always"],
-    "spaced-comment": [
-      "error",
-      "always",
-      { "markers": ["!", "?", "//", "todo", "*"] }
-    ],
+    "spaced-comment": ["error", "always", { "markers": ["!", "?", "//", "todo", "*"] }],
 
     "class-methods-use-this": "off",
     "@typescript-eslint/no-inferrable-types": "off",
@@ -66,5 +57,20 @@
         }
       }
     ]
+  },
+  "settings": {
+    "import/parsers": {
+      " @typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".ts", ".tsx", ".json"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./"
+      }
+    }
   }
 }

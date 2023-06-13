@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const NodemonPlugin = require('nodemon-webpack-plugin');
 const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
@@ -28,7 +27,6 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
-    new NodemonPlugin(),
     new ForkTsCheckerPlugin(),
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -80,6 +78,9 @@ const config = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 };
 

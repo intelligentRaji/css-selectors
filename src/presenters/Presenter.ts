@@ -1,4 +1,4 @@
-import { BaseComponent } from 'src/components/BaseComponent';
+import { BaseComponent } from '@/components/BaseComponent';
 
 export class Presenter {
   protected readonly view!: BaseComponent<HTMLElement>;

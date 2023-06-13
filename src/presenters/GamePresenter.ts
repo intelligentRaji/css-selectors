@@ -1,14 +1,9 @@
-import { BaseComponent } from 'src/components/BaseComponent';
-import { GameModel } from 'src/models/GameModel';
-import { Presenter } from './Presenter';
+import { BaseComponent } from '@/components/BaseComponent';
+import { GameModel } from '@/models/GameModel';
+import { Presenter } from '@/presenters/Presenter';
 
 export class GamePresenter extends Presenter {
   private readonly model = new GameModel();
-
-  constructor() {
-    super();
-    this.view.insertChild();
-  }
 
   public render(): HTMLElement {
     const wrapper = new BaseComponent({ className: 'wrapper' });

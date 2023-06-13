@@ -1,4 +1,4 @@
-import { BaseComponent } from "./BaseComponent";
+import { BaseComponent } from './BaseComponent';
 
 interface IButtonComponent {
   parent: HTMLElement;
@@ -9,9 +9,9 @@ interface IButtonComponent {
 
 export class ButtonComponent extends BaseComponent {
   constructor({ parent, className, callback, text }: IButtonComponent) {
-    super({ tag: "button", className, parent, text });
+    super({ tag: 'button', className, parent, text });
     if (callback) {
-      this.addEvent("click", callback);
+      this.addEvent('click', callback);
     }
   }
 }
