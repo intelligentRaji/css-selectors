@@ -1,9 +1,12 @@
 import { BaseComponent } from '@/components/BaseComponent';
 
-export class Presenter {
-  protected readonly view!: BaseComponent<HTMLElement>;
+export class Presenter<View extends BaseComponent, Model> {
+  protected readonly view: View;
 
-  public getNode(): HTMLElement {
-    return this.view.getNode();
+  protected readonly model: Model;
+
+  constructor(view: View, model: Model) {
+    this.view = view;
+    this.model = model;
   }
 }

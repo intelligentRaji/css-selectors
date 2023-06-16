@@ -1,18 +1,40 @@
-type Callback = (...args: any[]) => void;
-type Events = Record<string, Callback>;
+type Callback<T = unknown> = (...args: T[]) => void;
 
-export class EventEmitter {
-  protected events: Events = {};
+class EventEmitter<T = unknown> {
+  private events: Record<string, Callback<T>[]> = {};
 
-  public subscribe(key: string, callback: any): void {
-    this.events[key] = callback;
+  public on(event: string, callback: Callback<T>): void {
+    if (!this.events[event]) {
+      this.events[event] = [];
+    }
+    this.events[event].push(callback);
   }
 
-  public unsubscribe(key: string): void {
-    delete this.events[key];
+  public off(event: string, callback: Callback<T>): void {
+    const targetEvent = this.events[event];
+
+    if (!targetEvent) {
+      return;
+    }
+
+    targetEvent.filter((item) => item !== callback);
+
+    if (!targetEvent.length) {
+      delete this.events[event];
+    }
   }
 
-  public emit(key: string, ...args: any[]): void | any {
-    this.events[key](...args);
+  public emit(event: string, ...args: T[]): void {
+    const callableEvent = this.events[event];
+
+    if (!callableEvent) {
+      return;
+    }
+
+    callableEvent.forEach((callback) => {
+      callback(...args);
+    });
   }
 }
+
+export const eventEmitter = new EventEmitter();

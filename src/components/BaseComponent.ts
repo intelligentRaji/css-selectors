@@ -1,7 +1,7 @@
 export interface BaseObject {
   tag?: keyof HTMLElementTagNameMap;
   parent?: HTMLElement;
-  className?: string;
+  className?: string[];
   text?: string;
   type?: string;
 }
@@ -9,9 +9,9 @@ export interface BaseObject {
 export class BaseComponent<T extends HTMLElement = HTMLElement> {
   public readonly element: T;
 
-  constructor({ tag = 'div', parent, className = '', text = '' }: BaseObject) {
+  constructor({ tag = 'div', parent, className = [], text = '' }: BaseObject) {
     this.element = document.createElement(tag) as T;
-    this.element.className = className;
+    this.element.classList.add(...className);
     if (parent) {
       parent.append(this.element);
     }

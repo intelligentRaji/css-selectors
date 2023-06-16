@@ -1,21 +1,33 @@
+import { EventName } from '@/enums/EventName';
 import { LocalStorage } from '@/enums/LocalStorage';
+import { eventEmitter } from '@/services/EventEmitter';
 import { localStorageManager } from '@/services/LocalStorageManager';
-import { Observable } from '@/services/Observable';
+import { Observable, isCallable } from '@/services/Observable';
+
+const defualtLevel = 1;
 
 export class GameModel {
-  private currentLevel: Observable<number>;
+  private level: Observable<number>;
 
   constructor() {
-    this.currentLevel = new Observable(
-      localStorageManager.getItem(LocalStorage.LEVEL, 1)
+    this.level = new Observable(
+      localStorageManager.getItem(LocalStorage.LEVEL, defualtLevel)
     );
   }
 
-  public getCurrentLevel(): number {
-    return this.currentLevel.getValue();
+  public getLevel(): number {
+    return this.level.getValue();
   }
 
-  public setCurrentLevel(number: number): void {
-    this.currentLevel.notify(number);
-  }
+  public setLevel = (value: number): void => {
+    this.level.notify(value);
+  };
+
+  public plusLevel = (): void => {
+    this.level.notify((value) => value + 1);
+  };
+
+  public minusLevel = (): void => {
+    this.level.notify((value) => value - 1);
+  };
 }

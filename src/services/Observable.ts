@@ -1,5 +1,5 @@
-function isCallable(fn: unknown): fn is CallableFunction {
-  return typeof fn === "function";
+export function isCallable(fn: unknown): fn is CallableFunction {
+  return typeof fn === 'function';
 }
 
 export class Observable<ListenerType> {
@@ -12,9 +12,11 @@ export class Observable<ListenerType> {
     this.listeners = [];
   }
 
-  public subscribe(listener: (params: ListenerType) => void): void {
+  public subscribe(listener: (params: ListenerType) => void, updateData = false): void {
     this.listeners.push(listener);
-    listener(this.value);
+    if (updateData) {
+      listener(this.value);
+    }
   }
 
   public unsubscribe(listener: (params: ListenerType) => void): void {

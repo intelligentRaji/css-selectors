@@ -1,17 +1,17 @@
-import { GamePresenter } from '@/presenters/GamePresenter';
+import { Game } from './components/game/Game';
 
 class App {
   private readonly root: HTMLElement;
 
-  private game: GamePresenter;
+  private game: Game;
 
   constructor(root: HTMLElement) {
     this.root = root;
-    this.game = new GamePresenter();
+    this.game = new Game();
   }
 
   public start(): void {
-    this.root.append(this.game.render());
+    this.root.append(this.game.getNode());
   }
 }
 
