@@ -23,6 +23,13 @@
   },
   "homepage": "https://github.com/intelligentRaji/webpack-config#readme",
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/lang-css": "^6.2.0",
+    "@codemirror/lang-html": "^6.4.4",
+    "@codemirror/lang-xml": "^6.0.2",
+    "@codemirror/language": "^6.8.0",
+    "@lezer/highlight": "^1.1.6",
+    "codemirror": "^6.0.1",
     "normalize.css": "^8.0.1",
     "ps-node": "^0.1.6"
   },
@@ -30,7 +37,6 @@
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@webpack-cli/generators": "^3.0.2",
-    "codemirror": "^6.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "esbuild-loader": "^2.20.0",
