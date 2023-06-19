@@ -1,3 +1,4 @@
+import './style.scss';
 import { Game } from './components/game/Game';
 
 class App {

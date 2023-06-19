@@ -1,0 +1,53 @@
+@import '@/variables.scss';
+
+.redactor-editor {
+  position: relative;
+}
+
+.redactor-editor-input {
+  color: #fff;
+  caret-color: black;
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+.redactor-editor-input.empty {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.redactor-editor-view {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  z-index: 1;
+  color: purple;
+}
+
+.comment {
+  color: $comment-color;
+}
+
+code.hljs {
+  background-color: transparent;
+}
+
+.hljs-selector-pseudo {
+  color: rgb(56, 121, 56);
+}
+
+@keyframes blink {
+  0% {
+    background-color: initial;
+  }
+  50% {
+    background-color: rgb(186, 227, 255);
+  }
+  100% {
+    background-color: initial;
+  }
+}

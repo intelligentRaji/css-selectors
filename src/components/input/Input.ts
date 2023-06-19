@@ -1,3 +1,4 @@
+import './input.scss';
 import { BaseComponent } from '../BaseComponent';
 
 interface IInput {
@@ -9,9 +10,16 @@ interface IInput {
 }
 
 export class Input extends BaseComponent<HTMLInputElement> {
-  constructor({ className = [], parent, value = '', type = 'text' }: IInput) {
+  constructor({
+    className = [],
+    parent,
+    value = '',
+    type = 'text',
+    placeholder = '',
+  }: IInput) {
     super({ tag: 'input', className: [...className, 'input'], parent });
     this.element.type = type;
+    this.element.setAttribute('placeholder', placeholder);
     this.setValue(value);
   }
 

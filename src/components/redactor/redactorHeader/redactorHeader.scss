@@ -1,0 +1,16 @@
+@import '@/variables';
+
+.redactor-header {
+  background-color: $redactor-header-bg-color;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.redactor-title {
+  color: $redactor-title-color;
+}
+
+.redactor-language {
+  color: $redactor-language-color;
+}

@@ -1,7 +1,8 @@
+import './button.scss';
 import { BaseComponent } from '../BaseComponent';
 
 interface IButtonComponent {
-  parent: HTMLElement;
+  parent?: HTMLElement;
   className: string[];
   callback?: (e: Event) => void;
   text?: string;

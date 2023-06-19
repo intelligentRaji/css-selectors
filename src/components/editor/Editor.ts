@@ -1,11 +1,13 @@
+import './editor.scss';
 import { BaseComponent } from '../BaseComponent';
-import { Input } from '../input/Input';
-import { RedactorEditor } from '../redactor/redactorEditor/RedactorBody';
+import { RedactorEditor } from '../redactor/redactorEditor/RedactorEditor';
 import { RedactorHeader } from '../redactor/redactorHeader/RedactorHeader';
 import { RedactorRows } from '../redactor/redactorRows/RedactorRows';
+import { ButtonComponent } from '../button/ButtonComponent';
 
 export class Editor extends BaseComponent {
   private readonly redactor: RedactorEditor;
+  private readonly button: ButtonComponent;
 
   constructor() {
     super({ className: ['editor'] });
@@ -15,11 +17,23 @@ export class Editor extends BaseComponent {
     });
     const editorBody = new BaseComponent({ className: ['editor-body'] });
     const editorRows = new RedactorRows(20);
-    this.redactor = new Input({
-      className: ['editor-redactor'],
-      placeholder: 'Type in a CSS selector',
-    });
-    editorBody.insertChild(editorRows.getNode(), this.redactor.getNode());
+    const redactorBody = new BaseComponent({ className: ['redactor-body'] });
+    const bodyText = new BaseComponent({ tag: 'p', className: ['comment'] });
+    bodyText.setInnerHTML(
+      '{<br>' +
+        '/* Styles would go here. */<br>' +
+        '}<br><br>' +
+        '/*<br>Type a number to skip to a level.<br>' +
+        'Ex → "5" for level 5<br>*/'
+    );
+    this.redactor = new RedactorEditor(editorBody.getNode());
+    this.button = new ButtonComponent({ className: ['editor-button'], text: 'enter' });
+    redactorBody.insertChild(this.redactor.getNode(), bodyText.getNode());
+    editorBody.insertChild(
+      editorRows.getNode(),
+      redactorBody.getNode(),
+      this.button.getNode()
+    );
     this.insertChild(editorHeader.getNode(), editorBody.getNode());
   }
 }

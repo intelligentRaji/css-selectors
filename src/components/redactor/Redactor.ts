@@ -1,3 +1,4 @@
+import './redactor.scss';
 import { BaseComponent } from '../BaseComponent';
 import { Editor } from '../editor/Editor';
 

@@ -1,0 +1,35 @@
+@import '@/variables.scss';
+
+.editor {
+  font-family: $redactor-font;
+  padding: 10px;
+  background-color: $brown;
+}
+
+.editor * {
+  line-height: 150%;
+  font-size: 14px;
+}
+
+.editor-body {
+  display: flex;
+  background-color: $editor-body-bg;
+  align-items: start;
+  padding-right: 8px;
+}
+
+.editor-button {
+  margin-top: 10px;
+  background-color: $redactor-light-secondary-color;
+  border-radius: 2px;
+  padding: 2px 7px 2px 7px;
+  color: #666;
+  border: solid 3px #999;
+  border-width: 1px 1px 6px 1px;
+  font-size: 9px;
+}
+
+.editor .redactor-rows {
+  color: $lightmode-rows;
+  background-color: $redactor-light-secondary-color;
+}

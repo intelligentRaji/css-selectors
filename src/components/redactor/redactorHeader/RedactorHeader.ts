@@ -1,3 +1,4 @@
+import './redactorHeader.scss';
 import { BaseComponent } from '@/components/BaseComponent';
 
 interface IRedactorHeader {

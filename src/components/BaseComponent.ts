@@ -38,6 +38,10 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     this.element.textContent = text;
   }
 
+  public setInnerHTML(value: string): void {
+    this.element.innerHTML = value;
+  }
+
   public stylize<K extends keyof CSSStyleDeclaration>(
     prop: K,
     value: CSSStyleDeclaration[K]

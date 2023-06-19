@@ -1,8 +1,6 @@
-import { EventName } from '@/enums/EventName';
 import { LocalStorage } from '@/enums/LocalStorage';
-import { eventEmitter } from '@/services/EventEmitter';
 import { localStorageManager } from '@/services/LocalStorageManager';
-import { Observable, isCallable } from '@/services/Observable';
+import { Observable } from '@/services/Observable';
 
 const defualtLevel = 1;
 
