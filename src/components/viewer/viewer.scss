@@ -1,0 +1,10 @@
+@import '@/variables.scss';
+
+.viewer {
+  background-color: $redactor-dark-bg;
+  flex: 1 1 50%;
+}
+
+.viewer .redactor-row {
+  color: $darkmode-rows;
+}

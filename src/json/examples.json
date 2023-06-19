@@ -1,0 +1,34 @@
+{
+  "1": [
+    "<strong>div</strong> selects all <tag>div</tag> elements.",
+    "<strong>p</strong> selects all <tag>p</tag> elements."
+  ],
+  "2": [
+    "<strong>div</strong> selects all <tag>div</tag> elements.",
+    "<strong>p</strong> selects all <tag>p</tag> elements."
+  ],
+  "3": [
+    "<strong>#cool</strong> selects any element with <strong>id=\"cool\"</strong>",
+    "<strong>ul#long</strong> selects <tag>ul id=\"long\"</tag>"
+  ],
+  "4": [
+    "<strong>p  strong</strong> selects all <tag>strong</tag> elements that are inside of any <tag>p</tag>",
+    "<strong>#fancy  span</strong> selects any <tag>span</tag> elements that are inside of the element with id=\"fancy\""
+  ],
+  "5": [
+    "#cool span selects all <tag>span</tag> elements that are inside of elements with id=\"cool\""
+  ],
+  "6": [
+    "<strong>.neato<strong> selects all elements with <strong>class=\"neato\"<strong>"
+  ],
+  "7": [
+    "<strong>ul.important<strong> selects all <tag>ul</tag> elements that have <strong>class=\"important\"</strong>",
+    "<strong>#big.wide</strong> selects all elements with <strong>id=\"big\"</strong> that also have <strong>class=\"wide\"</strong>"
+  ],
+  "8": [],
+  "9": [
+    "<strong>p, .fun</strong> selects all <tag>p</tag> elements as well as all elements with <strong>class=\"fun\"</strong>",
+    "<strong>a, p, div</strong> selects all <tag>a</tag>, <tag>p</tag> and <tag>div</tag> elements"
+  ],
+  "10": ["<strong>p *</strong> selects any element inside all <tag>p</tag> elements."]
+}

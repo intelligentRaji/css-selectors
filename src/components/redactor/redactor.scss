@@ -1,7 +1,18 @@
+@import '@/variables.scss';
+
 .redactor {
   display: flex;
+  font-family: $redactor-font;
+  padding: 10px;
+  background-color: $brown;
+}
+
+.redactor * {
+  line-height: 150%;
+  font-size: 14px;
 }
 
 .redactor-body {
   padding: 10px 8px 10px 10px;
+  flex: 1 1 auto;
 }

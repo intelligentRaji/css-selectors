@@ -1,0 +1,12 @@
+{
+  "1": "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <strong>div</strong>, <strong>p</strong> and <strong>ul</strong> are all different element types.",
+  "2": "Selects all elements of type <strong>A</strong>. Type refers to the type of tag, so <strong>div</strong>, <strong>p</strong> and <strong>ul</strong> are all different element types.",
+  "3": "Selects the element with a specific <strong>id</strong>. You can also combine the ID selector with the type selector.",
+  "4": "Selects all <strong>B</strong> inside of <strong>A</strong>. <strong>B</strong> is called a descendant because it is inside of another element.",
+  "5": "You can combine any selector with the descendent selector.",
+  "6": "The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.",
+  "7": "You can combine the class selector with other selectors, like the type selector.",
+  "8": "Combine what you learned in the last few levels to solve this one!",
+  "9": "Thanks to Shatner technology, this selects all <strong>A</strong> and <strong>B</strong> elements. You can combine any selectors this way, and you can specify more than two.",
+  "10": "You can select all elements with the universal selector!"
+}

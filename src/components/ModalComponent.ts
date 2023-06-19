@@ -1,12 +1,12 @@
 import { BaseComponent } from '@/components/BaseComponent';
 
 interface IModalComponent {
-  parent: HTMLElement;
-  className: string[];
+  parent?: HTMLElement;
+  className?: string[];
 }
 
 export class ModalComponent extends BaseComponent {
-  constructor({ parent, className }: IModalComponent) {
+  constructor({ parent, className = [] }: IModalComponent) {
     super({ tag: 'div', parent, className: [...className] });
   }
 
