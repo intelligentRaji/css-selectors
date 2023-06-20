@@ -1,0 +1,26 @@
+@import '@/variables.scss';
+
+.progress-bar {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin-bottom: 30px;
+}
+
+.progress-bar-progress {
+  background-color: $grey;
+  height: 100%;
+  position: relative;
+}
+
+.progress-bar-progress::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: -3px;
+  width: 4px;
+  height: 4px;
+  background-color: $aside-primary-color;
+  border-radius: 50%;
+  border: solid 2px #2a231d;
+}

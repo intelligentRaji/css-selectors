@@ -13,6 +13,7 @@ class App {
 
   public start(): void {
     this.root.append(this.game.getNode());
+    this.game.loadData();
   }
 }
 

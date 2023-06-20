@@ -1,5 +1,18 @@
 import { Game } from '@/components/game/Game';
-import { GameModel } from '@/models/GameModel';
-import { Presenter } from '@/presenters/Presenter';
+import { IModel } from '@/interfaces/model';
 
-export class GamePresenter extends Presenter<Game, GameModel> {}
+interface IGamePresenter {
+  view: Game;
+  model: IModel;
+}
+
+export class GamePresenter {
+  private readonly view: Game;
+  private readonly model: IModel;
+
+  constructor({ view, model }: IGamePresenter) {
+    this.view = view;
+    this.model = model;
+  }
+  public loadData(): void {}
+}

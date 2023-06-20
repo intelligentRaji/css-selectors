@@ -1,0 +1,106 @@
+@import '@/variables';
+
+%burger-row {
+  display: block;
+  height: 2px;
+  width: 27px;
+  background-color: $grey;
+  transition: all 0.2s ease 0s;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.controls-level {
+  color: $aside-secondary-color;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.controls-status {
+  display: inline-block;
+  margin-left: 10px;
+  width: 12px;
+  height: 20px;
+  transform: rotate(40deg) translateY(-3px);
+  border: solid 3px #4cbb4a;
+  border-width: 0 4px 4px 0;
+}
+
+.controls-status.completed {
+  opacity: 0.7;
+  border-color: #4cbb4a;
+}
+
+.controls-status.uncompleted {
+  border-color: white;
+  opacity: 0.2;
+}
+
+.controls .level-button {
+  position: relative;
+  left: 0;
+  top: 2px;
+  height: 18px;
+  width: 18px;
+  border: solid 2px $grey;
+  border-width: 2px 2px 0 0;
+  margin-top: 6px;
+  transition: all 0.2s ease 0s;
+  padding: 5px;
+}
+
+.controls-previous {
+  transform: rotate(-135deg);
+  right: 2px;
+  margin-right: 10px;
+}
+
+.controls-next {
+  transform: rotate(45deg);
+  left: 2px;
+  margin-right: 20px;
+}
+
+.controls-level-list {
+  position: relative;
+  top: -1px;
+  left: 0;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  padding: 0;
+}
+
+.burger-row {
+  @extend %burger-row;
+}
+
+.burger-row::before {
+  content: '';
+  @extend %burger-row;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.burger-row::after {
+  content: '';
+  @extend %burger-row;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.controls-level-list:hover .burger-row,
+.controls-level-list:hover .burger-row::after,
+.controls-level-list:hover .burger-row::before {
+  background-color: $aside-secondary-color;
+}
+
+.level-button:hover {
+  border-color: $aside-secondary-color;
+}

@@ -6,6 +6,6 @@ export class LevelModel {
   private level: Observable<number>;
 
   constructor(level: number) {
-    this.level = new Observable(localStorageManager.getItem(LocalStorage.LEVEL, level));
+    this.level = new Observable(localStorageManager.getItem(LocalStorage.level, level));
   }
 }

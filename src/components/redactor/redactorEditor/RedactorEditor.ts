@@ -33,7 +33,6 @@ export class RedactorEditor extends BaseComponent {
   }
 
   private isEmpty(): boolean {
-    console.log(this.input.getValue());
     return this.input.getValue() === '';
   }
 

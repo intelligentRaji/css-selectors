@@ -1,12 +1,12 @@
-{
-  "1": "Select elements by their type",
-  "2": "Select elements by their type",
-  "3": "Select elements with an ID",
-  "4": "Select an element inside another element",
-  "5": "Combine the Descendant & ID Selectors",
-  "6": "Select elements by their class",
-  "7": "Combine the Class Selector",
-  "8": "You can do it...",
-  "9": "Combine, selectors, with... commas!",
-  "10": "You can select everything!"
-}
+[
+  "Select elements by their type",
+  "Select elements by their type",
+  "Select elements with an ID",
+  "Select an element inside another element",
+  "Combine the Descendant & ID Selectors",
+  "Select elements by their class",
+  "Combine the Class Selector",
+  "You can do it...",
+  "Combine, selectors, with... commas!",
+  "You can select everything!"
+]

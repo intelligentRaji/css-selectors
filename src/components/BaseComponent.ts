@@ -42,6 +42,10 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     this.element.innerHTML = value;
   }
 
+  public setAttribute(atribute: string, value: string): void {
+    this.element.setAttribute(atribute, value);
+  }
+
   public stylize<K extends keyof CSSStyleDeclaration>(
     prop: K,
     value: CSSStyleDeclaration[K]

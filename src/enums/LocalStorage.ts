@@ -1,3 +1,4 @@
 export enum LocalStorage {
-  LEVEL = 'level',
+  level = 'level',
+  completedLevels = 'completedLevels',
 }

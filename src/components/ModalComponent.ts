@@ -1,13 +1,14 @@
 import { BaseComponent } from '@/components/BaseComponent';
 
 interface IModalComponent {
+  tag?: keyof HTMLElementTagNameMap;
   parent?: HTMLElement;
   className?: string[];
 }
 
 export class ModalComponent extends BaseComponent {
-  constructor({ parent, className = [] }: IModalComponent) {
-    super({ tag: 'div', parent, className: [...className] });
+  constructor({ tag = 'div', parent, className = [] }: IModalComponent) {
+    super({ tag, parent, className: [...className] });
   }
 
   protected showElement = (e: Event): void => {
