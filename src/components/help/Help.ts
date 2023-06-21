@@ -36,7 +36,14 @@ export class Help extends BaseComponent {
     );
   }
 
+  private clearExamples(): void {
+    while (this.examples.getNode().children[0]) {
+      this.examples.getNode().children[0].remove();
+    }
+  }
+
   private setExamles(level: number): void {
+    this.clearExamples();
     examples[level].forEach((item: string) => {
       const example = new BaseComponent({ className: ['example'] });
       example.setInnerHTML(item);
@@ -61,7 +68,7 @@ export class Help extends BaseComponent {
   }
 
   public loadData(): void {
-    const level = gameModel.getLevel();
+    const level = gameModel.getLevel() - 1;
     this.setExamles(level);
     this.setSlectorName(level);
     this.setTitle(level);

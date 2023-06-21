@@ -1,5 +1,5 @@
 import './game.scss';
-import { GamePresenter } from '@/presenters/GamePresenter';
+import { LevelPresenter } from '@/presenters/LevelPresenter';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { Display } from '../display/Display';
@@ -10,14 +10,14 @@ import { ProgressBar } from '../progressBar/progressBar';
 import { Help } from '../help/Help';
 
 export class Game extends BaseComponent {
-  private readonly presenter: GamePresenter;
+  private readonly presenter: LevelPresenter;
   private readonly controls: Controls;
   private readonly progressBar: ProgressBar;
   private readonly help: Help;
 
   constructor() {
     super({ className: ['wrapper'] });
-    this.presenter = new GamePresenter({ view: this, model: gameModel });
+    this.presenter = new LevelPresenter({ view: this, model: gameModel });
     const aside = new ModalComponent({ tag: 'aside', className: ['aside'] });
     this.controls = new Controls();
     this.progressBar = new ProgressBar();

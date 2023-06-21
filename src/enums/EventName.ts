@@ -1,4 +1,4 @@
 export enum EventName {
-  subscribe = 'subscribe',
-  changeLevel = 'changeLevel',
+  previousLevel = 'previouseLevel',
+  nextLevel = 'nextLevel',
 }

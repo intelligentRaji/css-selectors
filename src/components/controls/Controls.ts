@@ -1,4 +1,6 @@
 import './controls.scss';
+import { eventEmitter } from '@/services/EventEmitter';
+import { EventName } from '@/enums/EventName';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
@@ -18,8 +20,16 @@ export class Controls extends BaseComponent {
     const levelNavigation = new BaseComponent({ className: ['level-navigation'] });
     this.previous = new ButtonComponent({
       className: ['controls-previous', 'level-button'],
+      callback: (e: Event): void => {
+        eventEmitter.emit(EventName.previousLevel);
+      },
     });
-    this.next = new ButtonComponent({ className: ['controls-next', 'level-button'] });
+    this.next = new ButtonComponent({
+      className: ['controls-next', 'level-button'],
+      callback: (e: Event): void => {
+        eventEmitter.emit(EventName.nextLevel);
+      },
+    });
     this.levelListButton = new ButtonComponent({ className: ['controls-level-list'] });
     this.levelListButton.insertChild(
       new BaseComponent({ tag: 'span', className: ['burger-row'] }).getNode()
