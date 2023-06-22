@@ -1,5 +1,4 @@
 import './help.scss';
-import { gameModel } from '@/models/GameModel';
 import examples from '@/json/examples.json';
 import titles from '@/json/title.json';
 import syntaxes from '@/json/syntax.json';
@@ -42,7 +41,7 @@ export class Help extends BaseComponent {
     }
   }
 
-  private setExamles(level: number): void {
+  private setExamples(level: number): void {
     this.clearExamples();
     examples[level].forEach((item: string) => {
       const example = new BaseComponent({ className: ['example'] });
@@ -67,9 +66,8 @@ export class Help extends BaseComponent {
     this.hint.setInnerHTML(hints[level]);
   }
 
-  public loadData(): void {
-    const level = gameModel.getLevel() - 1;
-    this.setExamles(level);
+  public loadData(level: number): void {
+    this.setExamples(level);
     this.setSlectorName(level);
     this.setTitle(level);
     this.setSyntax(level);

@@ -1,16 +1,16 @@
-type Callback<T = unknown> = (...args: T[]) => void;
+// type Callback<T = unknown> = (...args: T[]) => void;
 
-class EventEmitter<T = unknown> {
-  private events: Record<string, Callback<T>[]> = {};
+class EventEmitter<Callback extends (...args: Parameters<Callback>) => void> {
+  private events: Record<string, Callback[]> = {};
 
-  public on(event: string, callback: Callback<T>): void {
+  public on(event: string, callback: Callback): void {
     if (!this.events[event]) {
       this.events[event] = [];
     }
     this.events[event].push(callback);
   }
 
-  public off(event: string, callback: Callback<T>): void {
+  public off(event: string, callback: Callback): void {
     const targetEvent = this.events[event];
 
     if (!targetEvent) {
@@ -24,7 +24,7 @@ class EventEmitter<T = unknown> {
     }
   }
 
-  public emit(event: string, ...args: T[]): void {
+  public emit(event: string, ...args: unknown[]): void {
     const callableEvent = this.events[event];
 
     if (!callableEvent) {
@@ -32,7 +32,7 @@ class EventEmitter<T = unknown> {
     }
 
     callableEvent.forEach((callback) => {
-      callback(...args);
+      callback(...(args as Parameters<Callback>));
     });
   }
 }

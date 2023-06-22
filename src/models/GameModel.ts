@@ -1,11 +1,10 @@
 import { LocalStorage } from '@/enums/LocalStorage';
 import { localStorageManager } from '@/services/LocalStorageManager';
-import { Observable } from '@/services/Observable';
 import answers from '@/json/answer.json';
 import { IModel } from '@/interfaces/model';
 
 const defaultValues = {
-  level: 1,
+  level: 0,
   completedLevels: [],
 };
 
@@ -28,19 +27,19 @@ class GameModel implements IModel {
   }
 
   public setLevel(value: number): void {
-    if (value <= this.levelsExist && value >= 1) {
+    if (value <= this.levelsExist && value >= 0) {
       this.level = value;
     }
   }
 
   public plusLevel(): void {
-    if (this.level + 1 <= this.levelsExist) {
+    if (this.level + 1 <= this.levelsExist - 1) {
       this.level += 1;
     }
   }
 
   public minusLevel(): void {
-    if (this.level - 1 >= 1) {
+    if (this.level - 1 >= 0) {
       this.level -= 1;
     }
   }

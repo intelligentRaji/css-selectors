@@ -1,0 +1,75 @@
+@import '@/variables.scss';
+
+.levels-panel {
+  width: 100%;
+  height: 100vh;
+  background-color: $aside-bg;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: all 0.3s ease 0s;
+}
+
+.levels {
+  margin-bottom: 100px;
+}
+
+.levels-panel.open {
+  transform: translate(0);
+}
+
+.levels-panel-title {
+  color: $aside-secondary-color;
+  padding: 23px 0 15px 15px;
+}
+
+.levels .button {
+  display: flex;
+  padding: 5px 12px 5px 22px;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+}
+
+.levels .button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.levels .button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.levels .level-status {
+  margin-right: 15px;
+  border-width: 0 3px 3px 0;
+  width: 8px;
+  height: 13px;
+  position: relative;
+  top: 5px;
+}
+
+.levels .number {
+  color: $grey;
+  width: 25px;
+}
+
+.levels .title {
+  color: $aside-secondary-color;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.reset-button {
+  border: solid 2px $grey;
+  color: $grey;
+  min-width: 335px;
+  margin-left: 20px;
+  padding: 10px 0;
+  transition: all 0.2s ease 0s;
+}
+
+.reset-button:hover {
+  border-color: $aside-secondary-color;
+  color: $aside-secondary-color;
+}

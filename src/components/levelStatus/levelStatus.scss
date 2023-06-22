@@ -1,0 +1,18 @@
+.level-status {
+  display: inline-block;
+  width: 12px;
+  height: 20px;
+  transform: rotate(40deg) translateY(-3px);
+  border: solid 3px #4cbb4a;
+  border-width: 0 4px 4px 0;
+}
+
+.level-status.completed {
+  opacity: 0.7;
+  border-color: #4cbb4a;
+}
+
+.level-status.uncompleted {
+  border-color: white;
+  opacity: 0.2;
+}

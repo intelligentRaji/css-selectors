@@ -5,40 +5,26 @@ import { BaseComponent } from '../BaseComponent';
 import { Display } from '../display/Display';
 import { Redactor } from '../redactor/Redactor';
 import { ModalComponent } from '../ModalComponent';
-import { Controls } from '../controls/Controls';
-import { ProgressBar } from '../progressBar/progressBar';
-import { Help } from '../help/Help';
+import { ControlsAndHelpPanel } from '../controlsAndHelpPanel/controlsAndHelpPanel';
 
 export class Game extends BaseComponent {
   private readonly presenter: LevelPresenter;
-  private readonly controls: Controls;
-  private readonly progressBar: ProgressBar;
-  private readonly help: Help;
+  private readonly controlsAndHelpPanel: ControlsAndHelpPanel;
 
   constructor() {
     super({ className: ['wrapper'] });
     this.presenter = new LevelPresenter({ view: this, model: gameModel });
-    const aside = new ModalComponent({ tag: 'aside', className: ['aside'] });
-    this.controls = new Controls();
-    this.progressBar = new ProgressBar();
-    this.help = new Help();
+    this.controlsAndHelpPanel = new ControlsAndHelpPanel();
     const container = new BaseComponent({
       className: ['container'],
     });
     const display = new Display();
     const redactor = new Redactor();
-    aside.insertChild(
-      this.controls.getNode(),
-      this.progressBar.getNode(),
-      this.help.getNode()
-    );
     container.insertChild(display.getNode(), redactor.getNode());
-    this.insertChild(container.getNode(), aside.getNode());
+    this.insertChild(container.getNode(), this.controlsAndHelpPanel.getNode());
   }
 
   public loadData(): void {
-    this.progressBar.loadData();
-    this.help.loadData();
-    this.controls.loadData();
+    this.controlsAndHelpPanel.loadData();
   }
 }

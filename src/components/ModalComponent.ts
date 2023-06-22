@@ -28,7 +28,7 @@ export class ModalComponent extends BaseComponent {
     }
   };
 
-  protected visibilityMechanic = (e: Event): void => {
+  public visibilityMechanic = (e: Event): void => {
     if (this.element.classList.contains('open')) {
       this.closeElement(e);
     } else {

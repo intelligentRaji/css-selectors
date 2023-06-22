@@ -1,0 +1,69 @@
+@import '@/variables.scss';
+
+%burger-row {
+  display: block;
+  height: 2px;
+  width: 27px;
+  background-color: $grey;
+  transition: all 0.2s ease 0s;
+}
+
+.aside {
+  max-width: 375px;
+  background-color: $aside-bg;
+  padding: 20px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls-level-list {
+  position: absolute;
+  right: 20px;
+  top: 26px;
+  z-index: 1000;
+  width: 30px;
+  height: 22px;
+  padding: 0;
+}
+
+.levels-panel.open ~ .controls-level-list .burger-row {
+  background-color: transparent;
+  left: 0;
+}
+
+.levels-panel.open ~ .controls-level-list .burger-row::before {
+  transform: rotate(45deg);
+}
+
+.levels-panel.open ~ .controls-level-list .burger-row::after {
+  transform: rotate(-45deg);
+}
+
+.burger-row {
+  @extend %burger-row;
+}
+
+.burger-row::before {
+  content: '';
+  @extend %burger-row;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: center left;
+}
+
+.burger-row::after {
+  content: '';
+  @extend %burger-row;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform-origin: center left;
+}
+
+.controls-level-list:hover .burger-row,
+.controls-level-list:hover .burger-row::after,
+.controls-level-list:hover .burger-row::before {
+  background-color: $aside-secondary-color;
+}

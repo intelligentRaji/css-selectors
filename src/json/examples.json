@@ -18,9 +18,9 @@
   [
     "#cool span selects all <tag>span</tag> elements that are inside of elements with id=\"cool\""
   ],
-  ["<strong>.neato<strong> selects all elements with <strong>class=\"neato\"<strong>"],
+  ["<strong>.neato</strong> selects all elements with <strong>class=\"neato\"</strong>"],
   [
-    "<strong>ul.important<strong> selects all <tag>ul</tag> elements that have <strong>class=\"important\"</strong>",
+    "<strong>ul.important</strong> selects all <tag>ul</tag> elements that have <strong>class=\"important\"</strong>",
     "<strong>#big.wide</strong> selects all elements with <strong>id=\"big\"</strong> that also have <strong>class=\"wide\"</strong>"
   ],
   [],

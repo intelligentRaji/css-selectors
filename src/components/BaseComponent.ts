@@ -4,6 +4,7 @@ export interface BaseObject {
   className?: string[];
   text?: string;
   type?: string;
+  id?: string;
 }
 
 export class BaseComponent<T extends HTMLElement = HTMLElement> {
@@ -32,6 +33,10 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
 
   public getClassName(): string {
     return this.element.className;
+  }
+
+  public addData(name: string, data: string): void {
+    this.element.setAttribute(`data-${name}`, data);
   }
 
   public setTextContent(text: string): void {

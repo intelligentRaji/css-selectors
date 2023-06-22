@@ -13,12 +13,8 @@ export class ProgressBar extends BaseComponent {
     });
   }
 
-  private displayProgress(currentLevel: number, levelsExist: number): void {
-    const progress = (currentLevel / levelsExist) * 100;
+  public displayProgress(currentLevel: number, levelsExist: number): void {
+    const progress = ((currentLevel + 1) / levelsExist) * 100;
     this.progress.stylize('width', `${progress}%`);
-  }
-
-  public loadData(): void {
-    this.displayProgress(gameModel.getLevel(), gameModel.getLevelsExist());
   }
 }
