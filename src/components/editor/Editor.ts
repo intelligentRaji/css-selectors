@@ -27,7 +27,10 @@ export class Editor extends BaseComponent {
         'Ex → "5" for level 5<br>*/'
     );
     this.redactor = new RedactorEditor(editorBody.getNode());
-    this.button = new ButtonComponent({ className: ['editor-button'], text: 'enter' });
+    this.button = new ButtonComponent({
+      className: ['editor-button'],
+      text: 'enter',
+    });
     redactorBody.insertChild(this.redactor.getNode(), bodyText.getNode());
     editorBody.insertChild(
       editorRows.getNode(),

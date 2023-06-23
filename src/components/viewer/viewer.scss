@@ -3,6 +3,8 @@
 .viewer {
   background-color: $redactor-dark-bg;
   flex: 1 1 50%;
+  border-right: 1px solid $editor-border;
+  border-bottom: 1px solid $editor-border;
 }
 
 .viewer .redactor-row {

@@ -1,0 +1,29 @@
+@import '@/variables.scss';
+
+.display {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.goal {
+  color: $aside-secondary-color;
+  font-size: 45px;
+  font-weight: 400;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.hint.button {
+  background-color: $brown;
+  color: $aside-secondary-color;
+  padding: 8px 15px 10px 15px;
+  border-radius: 20px;
+  margin: 0 auto 40px auto;
+  opacity: 0.8;
+}
+
+.hint.button:hover {
+  text-decoration: underline;
+  opacity: 1;
+}

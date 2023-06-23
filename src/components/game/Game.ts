@@ -4,12 +4,12 @@ import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { Display } from '../display/Display';
 import { Redactor } from '../redactor/Redactor';
-import { ModalComponent } from '../ModalComponent';
 import { ControlsAndHelpPanel } from '../controlsAndHelpPanel/controlsAndHelpPanel';
 
 export class Game extends BaseComponent {
   private readonly presenter: LevelPresenter;
   private readonly controlsAndHelpPanel: ControlsAndHelpPanel;
+  private readonly display: Display;
 
   constructor() {
     super({ className: ['wrapper'] });
@@ -18,13 +18,15 @@ export class Game extends BaseComponent {
     const container = new BaseComponent({
       className: ['container'],
     });
-    const display = new Display();
+    this.display = new Display();
     const redactor = new Redactor();
-    container.insertChild(display.getNode(), redactor.getNode());
+    container.insertChild(this.display.getNode(), redactor.getNode());
     this.insertChild(container.getNode(), this.controlsAndHelpPanel.getNode());
   }
 
   public loadData(): void {
+    const level = gameModel.getLevel();
     this.controlsAndHelpPanel.loadData();
+    this.display.loadData(level);
   }
 }

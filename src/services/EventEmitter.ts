@@ -1,5 +1,3 @@
-// type Callback<T = unknown> = (...args: T[]) => void;
-
 class EventEmitter<Callback extends (...args: Parameters<Callback>) => void> {
   private events: Record<string, Callback[]> = {};
 

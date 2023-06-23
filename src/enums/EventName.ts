@@ -3,4 +3,5 @@ export enum EventName {
   nextLevel = 'nextLevel',
   setLevel = 'setLevel',
   reset = 'reset',
+  hint = 'hint',
 }

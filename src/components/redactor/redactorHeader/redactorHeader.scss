@@ -5,6 +5,9 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
+  border-top: 1px solid $editor-border;
+  border-bottom: 1px solid $editor-border;
+  border-radius: 2px;
 }
 
 .redactor-title {

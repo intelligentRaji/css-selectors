@@ -1,7 +1,6 @@
 import './controls.scss';
 import { eventEmitter } from '@/services/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
 import { LevelStatus } from '../levelStatus/levelStatus';
