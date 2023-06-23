@@ -6,7 +6,7 @@ import { BaseComponent } from '@/components/BaseComponent';
 import { Input } from '@/components/input/Input';
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
-import 'highlight.js/styles/a11y-light.css';
+// import 'highlight.js/styles/a11y-light.css';
 import { EventName } from '@/enums/EventName';
 
 export class RedactorEditor extends BaseComponent {
