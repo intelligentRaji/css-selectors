@@ -82,6 +82,10 @@ class GameModel implements IModel {
   public getHintLevels(): number[] {
     return this.hintLevels;
   }
+
+  public clearTargetElements(): void {
+    this.targetElements = [];
+  }
 }
 
 export const gameModel = new GameModel();

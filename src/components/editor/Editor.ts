@@ -46,7 +46,9 @@ export class Editor extends BaseComponent {
   private validate = (): void => {
     eventEmitter.emit(
       EventName.validate,
-      document.querySelectorAll(String(this.redactor.getValue() || 'z'))
+      document.querySelectorAll(
+        `.table ${this.redactor.getValue() || 'z'}:not(.table-edge)`
+      )
     );
   };
 }
