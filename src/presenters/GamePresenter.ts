@@ -19,6 +19,7 @@ export class LevelPresenter {
     eventEmitter.on(EventName.previousLevel, this.previousLevel);
     eventEmitter.on(EventName.setLevel, this.setLevel);
     eventEmitter.on(EventName.reset, this.resetProgress);
+    eventEmitter.on(EventName.validate, this.validate);
   }
 
   private nextLevel = (): void => {
@@ -39,5 +40,18 @@ export class LevelPresenter {
   private resetProgress = (): void => {
     this.model.setLevel(0);
     this.view.loadData();
+  };
+
+  private validate = (nodes: NodeList): void => {
+    const target = this.model.getTargetElements();
+    const selectElements = Array.from(nodes);
+    if (
+      selectElements.length === target.length &&
+      selectElements.every((item) => target.includes(item))
+    ) {
+      eventEmitter.emit(EventName.win);
+      return;
+    }
+    eventEmitter.emit(EventName.loose);
   };
 }

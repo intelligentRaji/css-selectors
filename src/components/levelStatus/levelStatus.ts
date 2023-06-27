@@ -12,6 +12,10 @@ export class LevelStatus extends BaseComponent {
       this.addClass('completed');
       return;
     }
+    if (gameModel.getHintLevels().includes(level)) {
+      this.addClass('hinted');
+      return;
+    }
     this.addClass('uncompleted');
   }
 }

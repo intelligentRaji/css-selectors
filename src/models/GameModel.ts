@@ -6,19 +6,25 @@ import { IModel } from '@/interfaces/model';
 const defaultValues = {
   level: 0,
   completedLevels: [],
+  hintLevels: [],
 };
 
 class GameModel implements IModel {
   private level: number;
   private levelsExist: number;
   private completedLevels: number[];
-  private targetElements: HTMLElement[] = [];
+  private hintLevels: number[];
+  private targetElements: Node[] = [];
 
   constructor() {
     this.level = localStorageManager.getItem(LocalStorage.level, defaultValues.level);
     this.completedLevels = localStorageManager.getItem(
       LocalStorage.completedLevels,
       defaultValues.completedLevels
+    );
+    this.hintLevels = localStorageManager.getItem(
+      LocalStorage.hintLevels,
+      defaultValues.hintLevels
     );
     this.levelsExist = answers.length;
   }
@@ -61,12 +67,20 @@ class GameModel implements IModel {
     this.completedLevels.filter((item) => item !== level);
   }
 
-  public addTargetElement(element: HTMLElement): void {
+  public addTargetElement(element: Node): void {
     this.targetElements.push(element);
   }
 
-  public getTargetElements(): HTMLElement[] {
+  public getTargetElements(): Node[] {
     return this.targetElements;
+  }
+
+  public addHintLevel(level: number): void {
+    this.hintLevels.push(level);
+  }
+
+  public getHintLevels(): number[] {
+    return this.hintLevels;
   }
 }
 

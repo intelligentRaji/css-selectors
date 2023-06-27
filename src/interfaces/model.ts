@@ -7,4 +7,8 @@ export interface IModel {
   isCompletedLevel(level: number): boolean;
   setCompletedLevel(level: number): void;
   removeCompletedLevel(level: number): void;
+  addTargetElement(element: Node): void;
+  getTargetElements(): Node[];
+  addHintLevel(level: number): void;
+  getHintLevels(): number[];
 }

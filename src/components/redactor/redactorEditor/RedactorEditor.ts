@@ -78,4 +78,8 @@ export class RedactorEditor extends BaseComponent {
 
     text();
   };
+
+  public getValue(): string {
+    return this.input.getValue();
+  }
 }

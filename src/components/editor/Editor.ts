@@ -1,4 +1,6 @@
 import './editor.scss';
+import { eventEmitter } from '@/services/EventEmitter';
+import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
 import { RedactorEditor } from '../redactor/redactorEditor/RedactorEditor';
 import { RedactorHeader } from '../redactor/redactorHeader/RedactorHeader';
@@ -30,6 +32,7 @@ export class Editor extends BaseComponent {
     this.button = new ButtonComponent({
       className: ['editor-button'],
       text: 'enter',
+      callback: this.validate,
     });
     redactorBody.insertChild(this.redactor.getNode(), bodyText.getNode());
     editorBody.insertChild(
@@ -39,4 +42,11 @@ export class Editor extends BaseComponent {
     );
     this.insertChild(editorHeader.getNode(), editorBody.getNode());
   }
+
+  private validate = (): void => {
+    eventEmitter.emit(
+      EventName.validate,
+      document.querySelectorAll(String(this.redactor.getValue() || 'z'))
+    );
+  };
 }

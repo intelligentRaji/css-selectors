@@ -1,5 +1,5 @@
 import './game.scss';
-import { LevelPresenter } from '@/presenters/LevelPresenter';
+import { LevelPresenter } from '@/presenters/GamePresenter';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { Display } from '../display/Display';
