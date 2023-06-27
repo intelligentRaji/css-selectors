@@ -15,27 +15,9 @@ export class LevelPresenter {
   constructor({ view, model }: IGamePresenter) {
     this.view = view;
     this.model = model;
-    eventEmitter.on(EventName.nextLevel, this.nextLevel);
-    eventEmitter.on(EventName.previousLevel, this.previousLevel);
-    eventEmitter.on(EventName.setLevel, this.setLevel);
     eventEmitter.on(EventName.reset, this.resetProgress);
     eventEmitter.on(EventName.validate, this.validate);
   }
-
-  private nextLevel = (): void => {
-    this.model.plusLevel();
-    this.view.loadData();
-  };
-
-  private previousLevel = (): void => {
-    this.model.minusLevel();
-    this.view.loadData();
-  };
-
-  private setLevel = (level: number): void => {
-    this.model.setLevel(level);
-    this.view.loadData();
-  };
 
   private resetProgress = (): void => {
     this.model.setLevel(0);
@@ -50,6 +32,7 @@ export class LevelPresenter {
       selectElements.every((item) => target.includes(item))
     ) {
       eventEmitter.emit(EventName.win);
+      this.model.setCompletedLevel(this.model.getLevel());
       return;
     }
     eventEmitter.emit(EventName.loose);

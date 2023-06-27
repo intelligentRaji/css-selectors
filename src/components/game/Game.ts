@@ -22,11 +22,12 @@ export class Game extends BaseComponent {
     const redactor = new Redactor();
     container.insertChild(this.display.getNode(), redactor.getNode());
     this.insertChild(container.getNode(), this.controlsAndHelpPanel.getNode());
+    gameModel.level.subscribe(this.loadData);
   }
 
-  public loadData(): void {
+  public loadData = (): void => {
     const level = gameModel.getLevel();
     this.controlsAndHelpPanel.loadData();
     this.display.loadData(level);
-  }
+  };
 }

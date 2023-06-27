@@ -1,0 +1,36 @@
+@import '@/variables.scss';
+
+.levels .button {
+  display: flex;
+  padding: 5px 12px 5px 22px;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+}
+
+.levels .button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.levels .button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.levels .level-status {
+  margin-right: 15px;
+  border-width: 0 3px 3px 0;
+  width: 8px;
+  height: 13px;
+  position: relative;
+  top: 5px;
+}
+
+.levels .number {
+  color: $grey;
+  width: 25px;
+}
+
+.levels .title {
+  color: $aside-secondary-color;
+  font-weight: 400;
+  font-size: 15px;
+}

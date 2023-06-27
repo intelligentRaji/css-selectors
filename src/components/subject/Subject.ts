@@ -1,5 +1,7 @@
 import { ISubject } from '@/interfaces/subject';
 import { gameModel } from '@/models/GameModel';
+import { eventEmitter } from '@/services/EventEmitter';
+import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
 import { ViewerSubject } from '../viewerSubject/ViewerSubject';
 
@@ -32,6 +34,8 @@ export class Subject extends BaseComponent {
     if (target) {
       this.addClass('target');
       gameModel.addTargetElement(this.getNode());
+      // this.addEvent('animationend', eventEmitter.emit())
+      eventEmitter.on(EventName.win, this.win);
     }
     this.tag = new ViewerSubject({ tag, className, id, isParent, parent: viewParent });
     this.addEvent('mouseenter', this.highlightSubject);
@@ -99,4 +103,8 @@ export class Subject extends BaseComponent {
     tag.addEvent('mouseenter', this.highlight);
     tag.addEvent('mouseleave', this.dim);
   }
+
+  private win = (): void => {
+    this.addClass('selected');
+  };
 }

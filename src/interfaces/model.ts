@@ -1,4 +1,7 @@
+import { Observable } from '@/services/Observable';
+
 export interface IModel {
+  level: Observable<number>;
   getLevel(): number;
   setLevel(value: number): void;
   plusLevel(): void;

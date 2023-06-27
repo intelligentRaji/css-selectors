@@ -1,6 +1,5 @@
 import './controls.scss';
-import { eventEmitter } from '@/services/EventEmitter';
-import { EventName } from '@/enums/EventName';
+import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
 import { LevelStatus } from '../levelStatus/levelStatus';
@@ -20,13 +19,13 @@ export class Controls extends BaseComponent {
     this.previous = new ButtonComponent({
       className: ['controls-previous', 'level-button'],
       callback: (e: Event): void => {
-        eventEmitter.emit(EventName.previousLevel);
+        gameModel.minusLevel();
       },
     });
     this.next = new ButtonComponent({
       className: ['controls-next', 'level-button'],
       callback: (e: Event): void => {
-        eventEmitter.emit(EventName.nextLevel);
+        gameModel.plusLevel();
       },
     });
     levelInformation.insertChild(this.level.getNode(), this.status.getNode());
