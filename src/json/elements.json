@@ -86,7 +86,7 @@
     },
     {
       "tag": "apple",
-      "className": "small",
+      "className": ["small"],
       "target": true
     },
     {
@@ -94,7 +94,7 @@
       "childs": [
         {
           "tag": "apple",
-          "className": "small",
+          "className": ["small"],
           "target": true
         }
       ]
@@ -109,14 +109,14 @@
     },
     {
       "tag": "apple",
-      "className": "small"
+      "className": ["small"]
     },
     {
       "tag": "bento",
       "childs": [
         {
           "tag": "orange",
-          "className": "small",
+          "className": ["small"],
           "target": true
         }
       ]
@@ -134,7 +134,7 @@
       "childs": [
         {
           "tag": "orange",
-          "className": "small",
+          "className": ["small"],
           "target": true
         }
       ]
@@ -151,14 +151,14 @@
     },
     {
       "tag": "orange",
-      "className": "small"
+      "className": ["small"]
     },
     {
       "tag": "bento",
       "childs": [
         {
           "tag": "orange",
-          "className": "small",
+          "className": ["small"],
           "target": true
         }
       ]
@@ -168,7 +168,7 @@
       "childs": [
         {
           "tag": "apple",
-          "className": "small"
+          "className": ["small"]
         }
       ]
     },
@@ -177,7 +177,7 @@
       "childs": [
         {
           "tag": "orange",
-          "className": "small",
+          "className": ["small"],
           "target": true
         }
       ]
@@ -186,7 +186,7 @@
   [
     {
       "tag": "pickle",
-      "className": "small"
+      "className": ["small"]
     },
     {
       "tag": "pickle"
@@ -223,7 +223,7 @@
     },
     {
       "tag": "pickle",
-      "className": "small"
+      "className": ["small"]
     }
   ],
   [
@@ -236,7 +236,7 @@
       "childs": [
         {
           "tag": "orange",
-          "className": "small"
+          "className": ["small"]
         }
       ],
       "target": true

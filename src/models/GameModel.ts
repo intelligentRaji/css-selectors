@@ -12,6 +12,7 @@ class GameModel implements IModel {
   private level: number;
   private levelsExist: number;
   private completedLevels: number[];
+  private targetElements: HTMLElement[] = [];
 
   constructor() {
     this.level = localStorageManager.getItem(LocalStorage.level, defaultValues.level);
@@ -58,6 +59,14 @@ class GameModel implements IModel {
 
   public removeCompletedLevel(level: number): void {
     this.completedLevels.filter((item) => item !== level);
+  }
+
+  public addTargetElement(element: HTMLElement): void {
+    this.targetElements.push(element);
+  }
+
+  public getTargetElements(): HTMLElement[] {
+    return this.targetElements;
   }
 }
 

@@ -1,1 +1,16 @@
+.redactor-viewer {
+  padding: 12px 8px 10px 10px;
+  color: #f3f3ed;
+}
 
+.redactor-viewer * {
+  cursor: default;
+}
+
+.redactor-viewer .element .element {
+  margin-left: 20px;
+}
+
+.redactor-viewer .element .highlighted * {
+  color: #fff;
+}

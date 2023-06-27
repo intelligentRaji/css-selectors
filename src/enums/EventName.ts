@@ -4,4 +4,5 @@ export enum EventName {
   setLevel = 'setLevel',
   reset = 'reset',
   hint = 'hint',
+  generateSubject = 'generateSubject',
 }

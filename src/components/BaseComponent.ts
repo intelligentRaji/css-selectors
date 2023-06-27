@@ -1,5 +1,7 @@
+import { CustomTags } from '@/types/customTags';
+
 export interface BaseObject {
-  tag?: keyof HTMLElementTagNameMap;
+  tag?: keyof HTMLElementTagNameMap | CustomTags;
   parent?: HTMLElement;
   className?: string[];
   text?: string;
@@ -10,13 +12,16 @@ export interface BaseObject {
 export class BaseComponent<T extends HTMLElement = HTMLElement> {
   public readonly element: T;
 
-  constructor({ tag = 'div', parent, className = [], text = '' }: BaseObject) {
+  constructor({ tag = 'div', parent, className = [], text = '', id }: BaseObject) {
     this.element = document.createElement(tag) as T;
     this.element.classList.add(...className);
     if (parent) {
       parent.append(this.element);
     }
-    this.element.innerHTML = text;
+    if (id) {
+      this.element.id = id;
+    }
+    this.element.textContent = text;
   }
 
   public getNode(): T {
@@ -51,6 +56,10 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     this.element.setAttribute(atribute, value);
   }
 
+  public setId(id: string): void {
+    this.element.id = id;
+  }
+
   public stylize<K extends keyof CSSStyleDeclaration>(
     prop: K,
     value: CSSStyleDeclaration[K]
@@ -74,5 +83,11 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     childs.forEach((node) => {
       this.element.append(node);
     });
+  }
+
+  public removeChildren(fromChildPostion = 0): void {
+    while (this.element.children[fromChildPostion]) {
+      this.element.children[fromChildPostion].remove();
+    }
   }
 }

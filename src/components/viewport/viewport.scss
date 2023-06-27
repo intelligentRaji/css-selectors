@@ -1,0 +1,268 @@
+.viewport {
+  margin-bottom: 50px;
+  perspective: 400px;
+}
+
+.table {
+  transform-style: preserve-3d;
+  min-height: 142px;
+  padding: 15px 15px 22px 15px;
+  box-shadow: 0 40px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(#dd992d, #cd8c26);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transform: rotateX(20deg);
+}
+
+.table .table-edge {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 12px;
+  background: #ac741c;
+  transform: rotateX(-40deg);
+  transform-origin: top;
+}
+
+.table-edge::before,
+.table-edge::after {
+  content: '';
+  width: 24px;
+  height: 10px;
+  background: #84570f;
+  position: absolute;
+  top: 100%;
+}
+
+.table-edge::before {
+  left: 20px;
+}
+
+.table-edge::after {
+  right: 20px;
+}
+
+plate,
+bento {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+plate *,
+bento * {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+}
+
+apple,
+orange,
+pickle {
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-block;
+  z-index: 1000;
+}
+
+plate {
+  border-radius: 50%;
+  border-bottom: solid 5px #ddd;
+  background-color: #fff;
+}
+
+plate:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 32px);
+  top: calc(50% - 32px);
+  height: 65px;
+  width: 65px;
+  border-radius: 60px;
+  border-top: solid 6px #ccc;
+  opacity: 0.4;
+  background: rgba(255, 255, 255, 1);
+}
+
+plate#fancy::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 47px);
+  top: calc(50% - 44px);
+  height: 68px;
+  width: 74px;
+  border-radius: 60px;
+  border: solid 10px #009ff2;
+  opacity: 0.4;
+}
+
+bento {
+  background: brown;
+  position: relative;
+  border: solid 3px #711c12;
+  border-width: 20px 2px;
+}
+
+bento::before {
+  content: '';
+  position: absolute;
+  width: calc(100%);
+  top: 0;
+  left: 0;
+  border: solid 10px rgba(0, 0, 0, 0.1);
+  border-width: 10px 0 0 0px;
+}
+
+apple,
+orange {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px 4px 15px 4px;
+}
+
+apple {
+  background: #e41919;
+  border-color: #ab1212;
+}
+
+apple::before,
+orange::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  height: 30%;
+  width: 30%;
+  top: 0px;
+  left: calc(50% - 15%);
+  border-radius: 100px;
+}
+
+apple.small,
+orange.small {
+  height: 30px;
+  width: 30px;
+  border-width: 2px 4px 8px 4px;
+}
+
+pickle.small {
+  height: 40px;
+  width: 18px;
+  border-width: 1px 2px 6px 2px;
+}
+
+orange {
+  background: orange;
+  border-color: #bd6e07;
+}
+
+pickle {
+  width: 25px;
+  height: 60px;
+  border-radius: 30px;
+  background: #179837;
+  border: solid 2px #025a18;
+  border-width: 2px 2px 9px 2px;
+}
+
+.table * {
+  transform-origin: bottom center;
+}
+
+.subject-hint {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white;
+  transform: rotateX(-20deg);
+  padding: 10px 15px 12px 15px;
+  background-color: #fff;
+  color: #666;
+  z-index: 1000;
+  border-bottom: solid 2px #bbb;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.2s ease 0s;
+  font-size: 18px;
+}
+
+.subject-hint.highlighted {
+  opacity: 1;
+}
+
+.viewport *.target {
+  animation-name: target;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.viewport bento *.target,
+.viewport plate *.target {
+  animation-name: target-in-parent;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.table plate *.highlighted {
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.table *.highlighted,
+bento *.highlighted {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes target {
+  0% {
+    transform: skew(3deg) scaleY(1);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  50% {
+    transform: skew(-3deg) scaleY(1);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  100% {
+    transform: skew(3deg) scaleY(1);
+  }
+}
+
+@keyframes target-in-parent {
+  0% {
+    transform: skew(3deg) scaleY(1) translateX(-50%);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  50% {
+    transform: skew(-3deg) scaleY(1) translateX(-50%);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  100% {
+    transform: skew(3deg) scaleY(1) translateX(-50%);
+  }
+}

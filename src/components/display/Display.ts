@@ -4,10 +4,12 @@ import { eventEmitter } from '@/services/EventEmitter';
 import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
+import { Viewport } from '../viewport/Viewport';
 
 export class Display extends BaseComponent {
   private readonly goal: BaseComponent;
   private readonly hint: ButtonComponent;
+  private readonly viewport: Viewport;
 
   constructor() {
     super({ className: ['display'] });
@@ -19,7 +21,8 @@ export class Display extends BaseComponent {
         eventEmitter.emit(EventName.hint);
       },
     });
-    this.insertChild(this.goal.getNode(), this.hint.getNode());
+    this.viewport = new Viewport();
+    this.insertChild(this.goal.getNode(), this.hint.getNode(), this.viewport.getNode());
   }
 
   private setGoal(level: number): void {
@@ -28,5 +31,6 @@ export class Display extends BaseComponent {
 
   public loadData(level: number): void {
     this.setGoal(level);
+    this.viewport.loadData(level);
   }
 }

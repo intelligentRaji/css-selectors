@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/intelligentRaji/webpack-config#readme",
   "dependencies": {
-    "highlight.js": "^11.8.0",
+    "highlight.js": "github:intelligentRaji/highlight.js",
     "normalize.scss": "^0.1.0",
     "ps-node": "^0.1.6"
   },
