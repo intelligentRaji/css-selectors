@@ -1,5 +1,4 @@
 import './progressBar.scss';
-import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 
 export class ProgressBar extends BaseComponent {

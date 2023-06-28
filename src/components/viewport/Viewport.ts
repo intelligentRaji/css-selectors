@@ -36,12 +36,7 @@ export class Viewport extends BaseComponent {
     eventEmitter.emit(EventName.generateSubject, this.tag.getNode());
     subjects.forEach((item: ISubject, index: number) => {
       const isParent = Boolean(item.childs);
-      const subject = new Subject({
-        parent,
-        isParent,
-        viewParent,
-        ...item,
-      });
+      const subject = new Subject({ parent, isParent, viewParent, ...item });
       this.subjects.push(subject);
       if (isChild) {
         subject.placeChildInTheMiddleOfParent(index);

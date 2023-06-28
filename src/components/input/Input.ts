@@ -1,5 +1,4 @@
 import './input.scss';
-import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 
 interface IInput {

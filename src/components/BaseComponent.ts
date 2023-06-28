@@ -67,11 +67,17 @@ export class BaseComponent<T extends HTMLElement = HTMLElement> {
     this.element.style[prop] = value;
   }
 
-  public addEvent(event: string, func: (e: Event) => void): void {
+  public addEvent<K extends keyof HTMLElementEventMap>(
+    event: K,
+    func: (e: HTMLElementEventMap[K]) => void
+  ): void {
     this.element.addEventListener(event, func);
   }
 
-  public removeEvent(event: string, func: (e: Event) => void): void {
+  public removeEvent<K extends keyof HTMLElementEventMap>(
+    event: K,
+    func: (e: HTMLElementEventMap[K]) => void
+  ): void {
     this.element.removeEventListener(event, func);
   }
 

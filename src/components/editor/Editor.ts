@@ -30,7 +30,11 @@ export class Editor extends BaseComponent {
         'Ex → "5" for level 5<br>*/'
     );
     this.redactor = new RedactorEditor(this.validate, editorBody.getNode());
-    this.redactor.input.addEvent('change', this.validate);
+    this.redactor.input.addEvent('keydown', (e): void => {
+      if (e.key === 'Enter') {
+        this.validate();
+      }
+    });
     this.button = new ButtonComponent({
       className: ['editor-button'],
       text: 'enter',
@@ -55,6 +59,10 @@ export class Editor extends BaseComponent {
 
   private validate = (): void => {
     const value = this.redactor.getValue();
+    if (value === '.target') {
+      eventEmitter.emit(EventName.loose);
+      return;
+    }
     if (Number(value) <= gameModel.getLevelsExist() && Number(value) >= 1) {
       gameModel.setLevel(Number(value) - 1);
       return;
