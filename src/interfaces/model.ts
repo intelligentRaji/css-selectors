@@ -7,7 +7,7 @@ export interface IModel {
   plusLevel(): void;
   minusLevel(): void;
   getLevelsExist(): number;
-  isCompletedLevel(level: number): boolean;
+  getCompletedLevels(): number[];
   setCompletedLevel(level: number): void;
   removeCompletedLevel(level: number): void;
   addTargetElement(element: Node): void;

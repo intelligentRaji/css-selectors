@@ -31,6 +31,7 @@ class GameModel implements IModel {
     );
     this.levelsExist = answers.length;
     this.level.subscribe(this.clearTargetElements);
+    window.addEventListener('beforeunload', this.toLocalStorage);
   }
 
   public getLevel(): number {
@@ -56,8 +57,8 @@ class GameModel implements IModel {
     return this.levelsExist;
   }
 
-  public isCompletedLevel(level: number): boolean {
-    return this.completedLevels.includes(level);
+  public getCompletedLevels(): number[] {
+    return this.completedLevels;
   }
 
   public setCompletedLevel(level: number): void {
@@ -92,6 +93,12 @@ class GameModel implements IModel {
     this.hintLevels = [];
     this.completedLevels = [];
   }
+
+  private toLocalStorage = (): void => {
+    localStorageManager.setItem(LocalStorage.level, this.getLevel());
+    localStorageManager.setItem(LocalStorage.completedLevels, this.getCompletedLevels());
+    localStorageManager.setItem(LocalStorage.hintLevels, this.getHintLevels());
+  };
 }
 
 export const gameModel = new GameModel();
