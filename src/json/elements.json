@@ -236,7 +236,8 @@
       "childs": [
         {
           "tag": "orange",
-          "className": ["small"]
+          "className": ["small"],
+          "target": true
         }
       ],
       "target": true
@@ -249,7 +250,8 @@
       "tag": "bento",
       "childs": [
         {
-          "tag": "orange"
+          "tag": "orange",
+          "target": true
         }
       ],
       "target": true

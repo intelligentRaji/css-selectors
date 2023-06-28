@@ -1,6 +1,7 @@
 import './editor.scss';
 import { eventEmitter } from '@/services/EventEmitter';
 import { EventName } from '@/enums/EventName';
+import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 import { RedactorEditor } from '../redactor/redactorEditor/RedactorEditor';
 import { RedactorHeader } from '../redactor/redactorHeader/RedactorHeader';
@@ -43,12 +44,21 @@ export class Editor extends BaseComponent {
     this.insertChild(editorHeader.getNode(), editorBody.getNode());
   }
 
+  private getSelectedElements(value: string): NodeList {
+    try {
+      return document.querySelectorAll(`.table ${value}:not(.table-edge)`);
+    } catch (err) {
+      return document.querySelectorAll(`.table ${'z'}:not(.table-edge)`);
+    }
+  }
+
   private validate = (): void => {
-    eventEmitter.emit(
-      EventName.validate,
-      document.querySelectorAll(
-        `.table ${this.redactor.getValue() || 'z'}:not(.table-edge)`
-      )
-    );
+    const value = this.redactor.getValue();
+    if (Number(value) <= gameModel.getLevelsExist() && Number(value) >= 1) {
+      gameModel.setLevel(Number(value) - 1);
+      return;
+    }
+    console.log(1);
+    eventEmitter.emit(EventName.validate, this.getSelectedElements(value));
   };
 }

@@ -30,6 +30,7 @@ export class RedactorEditor extends BaseComponent {
     this.input.addEvent('input', this.onInput);
     hljs.registerLanguage('css', css);
     eventEmitter.on(EventName.hint, this.writeHint);
+    gameModel.level.subscribe(this.clearValue);
   }
 
   private setCode(code: string): void {
@@ -82,4 +83,9 @@ export class RedactorEditor extends BaseComponent {
   public getValue(): string {
     return this.input.getValue();
   }
+
+  public clearValue = (): void => {
+    this.input.clearValue();
+    this.onInput();
+  };
 }

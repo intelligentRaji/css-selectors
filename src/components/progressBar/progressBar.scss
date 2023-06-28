@@ -11,6 +11,7 @@
   background-color: $grey;
   height: 100%;
   position: relative;
+  transition: all 0.3s ease 0s;
 }
 
 .progress-bar-progress::after {

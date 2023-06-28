@@ -20,8 +20,8 @@ export class LevelPresenter {
   }
 
   private resetProgress = (): void => {
+    this.model.reset();
     this.model.setLevel(0);
-    this.view.loadData();
   };
 
   private validate = (nodes: NodeList): void => {
@@ -31,8 +31,8 @@ export class LevelPresenter {
       selectElements.length === target.length &&
       selectElements.every((item) => target.includes(item))
     ) {
-      eventEmitter.emit(EventName.win);
       this.model.setCompletedLevel(this.model.getLevel());
+      eventEmitter.emit(EventName.win);
       return;
     }
     eventEmitter.emit(EventName.loose);

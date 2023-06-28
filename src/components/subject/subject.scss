@@ -1,0 +1,15 @@
+.table .selected {
+  animation-name: selected;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes selected {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2500px);
+  }
+}

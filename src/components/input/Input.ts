@@ -1,4 +1,5 @@
 import './input.scss';
+import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
 
 interface IInput {
@@ -31,7 +32,7 @@ export class Input extends BaseComponent<HTMLInputElement> {
     return this.element.value;
   }
 
-  public clearValue(): void {
+  public clearValue = (): void => {
     this.element.value = '';
-  }
+  };
 }

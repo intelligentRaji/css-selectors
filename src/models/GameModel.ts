@@ -87,6 +87,11 @@ class GameModel implements IModel {
   public clearTargetElements = (): void => {
     this.targetElements = [];
   };
+
+  public reset(): void {
+    this.hintLevels = [];
+    this.completedLevels = [];
+  }
 }
 
 export const gameModel = new GameModel();

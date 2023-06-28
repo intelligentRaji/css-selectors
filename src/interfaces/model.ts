@@ -14,4 +14,5 @@ export interface IModel {
   getTargetElements(): Node[];
   addHintLevel(level: number): void;
   getHintLevels(): number[];
+  reset(): void;
 }

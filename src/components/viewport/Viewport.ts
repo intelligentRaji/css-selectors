@@ -10,7 +10,7 @@ import { ViewerSubject } from '../viewerSubject/ViewerSubject';
 export class Viewport extends BaseComponent {
   private readonly table: BaseComponent;
   private tag!: ViewerSubject;
-  private readonly subjects: Subject[] = [];
+  private subjects: Subject[] = [];
 
   constructor() {
     super({ className: ['viewport'] });
@@ -35,7 +35,13 @@ export class Viewport extends BaseComponent {
     eventEmitter.emit(EventName.generateSubject, this.tag.getNode());
     subjects.forEach((item: ISubject, index: number) => {
       const isParent = Boolean(item.childs);
-      const subject = new Subject({ parent, isParent, viewParent, ...item });
+      const subject = new Subject({
+        parent,
+        isParent,
+        viewParent,
+        onWin: this.win,
+        ...item,
+      });
       this.subjects.push(subject);
       if (isChild) {
         subject.placeChildInTheMiddleOfParent(index);
@@ -53,7 +59,20 @@ export class Viewport extends BaseComponent {
   public loadData(level: number): void {
     this.tag = new ViewerSubject({ tag: 'div', className: ['table'], isParent: true });
     this.subjects.forEach((item) => item.destroy());
+    this.subjects = [];
     this.createElements(elements[level]);
     this.poseHints();
   }
+
+  private win = (): void => {
+    this.subjects.forEach((item) => item.destroy());
+    const winner = new BaseComponent({
+      tag: 'p',
+      className: ['winner'],
+      parent: this.table.getNode(),
+      text: `You did it! 
+      You rock at CSS.`,
+    });
+    this.subjects.push(winner as Subject);
+  };
 }

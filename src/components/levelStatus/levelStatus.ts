@@ -8,14 +8,16 @@ export class LevelStatus extends BaseComponent {
   }
 
   public displayLevelStatus(level: number): void {
-    if (gameModel.isCompletedLevel(level)) {
-      this.addClass('completed');
-      return;
-    }
     if (gameModel.getHintLevels().includes(level)) {
+      this.removeClass('completed');
       this.addClass('hinted');
       return;
     }
-    this.addClass('uncompleted');
+    if (gameModel.isCompletedLevel(level)) {
+      this.removeClass('hinted');
+      this.addClass('completed');
+      return;
+    }
+    this.removeClass('completed', 'hinted');
   }
 }
