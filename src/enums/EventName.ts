@@ -5,4 +5,5 @@ export enum EventName {
   loose = 'loose',
   win = 'win',
   validate = 'validate',
+  onWin = 'onWin',
 }

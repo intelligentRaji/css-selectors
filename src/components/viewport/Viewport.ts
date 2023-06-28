@@ -24,6 +24,7 @@ export class Viewport extends BaseComponent {
       className: ['table-edge'],
       parent: this.table.getNode(),
     });
+    eventEmitter.on(EventName.onWin, this.win);
   }
 
   private createElements(
@@ -39,7 +40,6 @@ export class Viewport extends BaseComponent {
         parent,
         isParent,
         viewParent,
-        onWin: this.win,
         ...item,
       });
       this.subjects.push(subject);
@@ -70,9 +70,8 @@ export class Viewport extends BaseComponent {
       tag: 'p',
       className: ['winner'],
       parent: this.table.getNode(),
-      text: `You did it! 
-      You rock at CSS.`,
     });
+    winner.setInnerHTML('<span><strong>You did it!</strong><br>You rock at CSS</span>');
     this.subjects.push(winner as Subject);
   };
 }

@@ -33,6 +33,13 @@ export class LevelPresenter {
     ) {
       this.model.setCompletedLevel(this.model.getLevel());
       eventEmitter.emit(EventName.win);
+      setTimeout(() => {
+        if (this.model.getLevel() === this.model.getLevelsExist() - 1) {
+          eventEmitter.emit(EventName.onWin);
+          return;
+        }
+        this.model.plusLevel();
+      }, 1000);
       return;
     }
     eventEmitter.emit(EventName.loose);

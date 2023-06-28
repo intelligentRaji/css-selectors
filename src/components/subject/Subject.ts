@@ -10,13 +10,11 @@ export interface SubjectConstructor extends Omit<ISubject, 'childs'> {
   viewParent?: ViewerSubject;
   parent: HTMLElement;
   isParent: boolean;
-  onWin: () => void;
 }
 
 export class Subject extends BaseComponent {
   private readonly hint: BaseComponent;
   private readonly tag: ViewerSubject;
-  private readonly onWin: () => void;
 
   constructor({
     tag,
@@ -26,7 +24,6 @@ export class Subject extends BaseComponent {
     target,
     isParent,
     viewParent,
-    onWin,
   }: SubjectConstructor) {
     super({ tag, className, id, parent });
     this.hint = new BaseComponent({
@@ -41,7 +38,6 @@ export class Subject extends BaseComponent {
       eventEmitter.on(EventName.win, this.selectTargetElement);
     }
     this.tag = new ViewerSubject({ tag, className, id, isParent, parent: viewParent });
-    this.onWin = onWin;
     this.addEvent('mouseenter', this.highlightSubject);
     this.addEvent('mouseleave', this.dimSubject);
     this.addTagEvents(this.tag.openTag);
@@ -110,16 +106,6 @@ export class Subject extends BaseComponent {
 
   private selectTargetElement = (): void => {
     this.removeClass('target');
-    this.addEvent('animationend', this.win);
     this.addClass('selected');
-  };
-
-  private win = (): void => {
-    this.removeEvent('animationend', this.win);
-    if (gameModel.getLevel() === gameModel.getLevelsExist() - 1) {
-      this.onWin();
-      return;
-    }
-    gameModel.plusLevel();
   };
 }
