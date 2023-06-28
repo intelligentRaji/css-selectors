@@ -46,3 +46,9 @@
     transform: translateX(0);
   }
 }
+
+@media (max-width: 850px) {
+  .redactor {
+    flex-direction: column;
+  }
+}

@@ -6,8 +6,9 @@ import { Controls } from '../controls/Controls';
 import { ProgressBar } from '../progressBar/progressBar';
 import { Help } from '../help/Help';
 import { LevelsPanel } from '../levelsPanel/LevelsPanel';
+import { ModalComponent } from '../ModalComponent';
 
-export class ControlsAndHelpPanel extends BaseComponent {
+export class ControlsAndHelpPanel extends ModalComponent {
   private readonly controls: Controls;
   private readonly progressBar: ProgressBar;
   private readonly help: Help;
@@ -16,6 +17,11 @@ export class ControlsAndHelpPanel extends BaseComponent {
 
   constructor() {
     super({ tag: 'aside', className: ['aside'] });
+    const showButton = new ButtonComponent({
+      className: ['aside-button'],
+      callback: this.visibilityMechanic,
+      text: 'Controls',
+    });
     this.controls = new Controls();
     this.progressBar = new ProgressBar();
     this.help = new Help();
@@ -28,6 +34,7 @@ export class ControlsAndHelpPanel extends BaseComponent {
       new BaseComponent({ tag: 'span', className: ['burger-row'] }).getNode()
     );
     this.insertChild(
+      showButton.getNode(),
       this.levelsPanel.getNode(),
       this.controls.getNode(),
       this.progressBar.getNode(),

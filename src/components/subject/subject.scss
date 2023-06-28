@@ -4,9 +4,25 @@
   animation-timing-function: linear;
 }
 
-@keyframes selected {
+.table * .selected {
+  animation-name: selected-children;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes selected-children {
   0% {
     transform: translateY(-30%) translateX(-45%);
+  }
+
+  100% {
+    transform: translateY(-2500px);
+  }
+}
+
+@keyframes selected {
+  0% {
+    transform: translateY(-30%);
   }
 
   100% {

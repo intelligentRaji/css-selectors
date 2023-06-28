@@ -80,11 +80,11 @@ plate:before {
   content: '';
   display: block;
   position: absolute;
-  left: calc(50% - 32px);
-  top: calc(50% - 32px);
-  height: 65px;
-  width: 65px;
-  border-radius: 60px;
+  left: calc(50% - 32%);
+  top: calc(50% - 32%);
+  height: 65%;
+  width: 65%;
+  border-radius: 60%;
   border-top: solid 6px #ccc;
   opacity: 0.4;
   background: rgba(255, 255, 255, 1);
@@ -94,11 +94,11 @@ plate#fancy::after {
   content: '';
   display: block;
   position: absolute;
-  left: calc(50% - 47px);
-  top: calc(50% - 44px);
-  height: 68px;
-  width: 74px;
-  border-radius: 60px;
+  left: calc(50% - 47%);
+  top: calc(50% - 44%);
+  height: 68%;
+  width: 74%;
+  border-radius: 60%;
   border: solid 10px #009ff2;
   opacity: 0.4;
 }
@@ -278,5 +278,53 @@ bento *.highlighted {
 
   100% {
     transform: skew(3deg) scaleY(1) translateX(-50%);
+  }
+}
+
+@media (max-width: 850px) {
+  .table {
+    gap: 15px;
+    min-height: 122px;
+  }
+
+  plate,
+  bento {
+    width: 70px;
+    height: 70px;
+  }
+
+  apple,
+  orange {
+    height: 40px;
+    width: 40px;
+  }
+
+  apple.small,
+  orange.small {
+    height: 25px;
+    width: 25px;
+  }
+
+  pickle {
+    height: 50px;
+    width: 18px;
+  }
+
+  bento {
+    border-width: 14px 2px;
+  }
+
+  plate#fancy::after {
+    border-width: 7px;
+  }
+
+  .subject-hint {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .subject-hint {
+    font-size: 14px;
   }
 }

@@ -10,11 +10,15 @@ export interface SubjectConstructor extends Omit<ISubject, 'childs'> {
   viewParent?: ViewerSubject;
   parent: HTMLElement;
   isParent: boolean;
+  positionInParent: number;
+  isChild: boolean;
 }
 
 export class Subject extends BaseComponent {
   private readonly hint: BaseComponent;
   private readonly tag: ViewerSubject;
+  private readonly positionInParent: number;
+  private readonly isChild: boolean;
 
   constructor({
     tag,
@@ -23,7 +27,9 @@ export class Subject extends BaseComponent {
     parent,
     target,
     isParent,
+    isChild,
     viewParent,
+    positionInParent,
   }: SubjectConstructor) {
     super({ tag, className, id, parent });
     this.hint = new BaseComponent({
@@ -38,20 +44,27 @@ export class Subject extends BaseComponent {
       eventEmitter.on(EventName.win, this.selectTargetElement);
     }
     this.tag = new ViewerSubject({ tag, className, id, isParent, parent: viewParent });
+    this.positionInParent = positionInParent;
+    this.isChild = isChild;
     this.addEvent('mouseenter', this.highlightSubject);
     this.addEvent('mouseleave', this.dimSubject);
     this.addTagEvents(this.tag.openTag);
     if (this.tag.closeTag) {
       this.addTagEvents(this.tag.closeTag);
     }
+    eventEmitter.on(EventName.resize, this.poseHint);
   }
 
-  public placeChildInTheMiddleOfParent(childPostion: number): void {
-    this.stylize(
-      'bottom',
-      `calc(50% - ${this.getNode().clientHeight / 2 + 5 + 30 * childPostion}px)`
-    );
-    this.stylize('position', 'absolute');
+  public placeChildInTheMiddleOfParent(): void {
+    if (this.isChild) {
+      this.stylize(
+        'bottom',
+        `calc(50% - ${
+          this.getNode().clientHeight / 2 + 5 + 30 * this.positionInParent
+        }px)`
+      );
+      this.stylize('position', 'absolute');
+    }
   }
 
   public getTag(): ViewerSubject {
@@ -67,17 +80,6 @@ export class Subject extends BaseComponent {
     this.dim();
     this.removeEvent('mousemove', this.removeEventIfChildHovered);
   };
-
-  public poseHint(): void {
-    const coordinates = this.getNode().getBoundingClientRect();
-    this.hint.stylize('left', `${coordinates.left + coordinates.width / 2}px`);
-    this.hint.stylize('top', `${coordinates.top - 70}px`);
-  }
-
-  public destroy(): void {
-    this.element.remove();
-    this.hint.destroy();
-  }
 
   private highlight = (e: Event): void => {
     this.addClass('highlighted');
@@ -98,6 +100,21 @@ export class Subject extends BaseComponent {
       this.highlight(e);
     }
   };
+
+  public poseHint = (): void => {
+    const coordinates = this.getNode().getBoundingClientRect();
+    if (window.innerWidth >= 600) {
+      this.hint.stylize('left', `${coordinates.left + coordinates.width / 2}px`);
+    } else {
+      this.hint.stylize('left', `${coordinates.left - coordinates.width}px`);
+    }
+    this.hint.stylize('top', `${coordinates.top - 70}px`);
+  };
+
+  public destroy(): void {
+    this.element.remove();
+    this.hint.destroy();
+  }
 
   public addTagEvents(tag: BaseComponent): void {
     tag.addEvent('mouseenter', this.highlight);

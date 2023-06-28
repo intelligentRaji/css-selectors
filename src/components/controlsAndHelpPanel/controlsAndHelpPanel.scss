@@ -67,3 +67,48 @@
 .controls-level-list:hover .burger-row::before {
   background-color: $aside-secondary-color;
 }
+
+.aside-button {
+  position: absolute;
+  left: -75px;
+  top: 60px;
+  font-size: 20px;
+  color: $aside-primary-color;
+  opacity: 0.5;
+  transform: rotate(-90deg);
+  padding: 10px 20px;
+  background-color: $aside-bg;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all 0.2s ease 0s;
+}
+
+.aside-button:hover {
+  opacity: 1;
+}
+
+@media (max-width: 1240px) {
+  .aside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 500;
+    transform: translateX(100%);
+    transition: all 0.3s ease 0s;
+    overflow: visible;
+  }
+
+  .aside.open {
+    transform: translateX(0);
+  }
+
+  .aside.open .aside-button {
+    opacity: 1;
+    color: rgba(114, 113, 113, 0.8);
+  }
+
+  .aside.open .aside-button:hover {
+    opacity: 1;
+    color: $aside-primary-color;
+  }
+}

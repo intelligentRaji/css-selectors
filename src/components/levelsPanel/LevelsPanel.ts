@@ -33,6 +33,11 @@ export class LevelsPanel extends ModalComponent {
       this.resetButton.getNode()
     );
     this.generateLevelButtons();
+    eventEmitter.on(EventName.onWin, () => {
+      this.levels.forEach((item) => {
+        item.displayLevelStatus(gameModel.getLevel());
+      });
+    });
   }
 
   public generateLevelButtons(): void {

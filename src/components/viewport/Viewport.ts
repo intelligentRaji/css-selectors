@@ -1,6 +1,7 @@
 import './viewport.scss';
 import { ISubject } from '@/interfaces/subject';
 import elements from '@/json/elements.json';
+import { gameModel } from '@/models/GameModel';
 import { eventEmitter } from '@/services/EventEmitter';
 import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
@@ -25,6 +26,8 @@ export class Viewport extends BaseComponent {
       parent: this.table.getNode(),
     });
     eventEmitter.on(EventName.onWin, this.win);
+    const media = window.matchMedia('(max-width: 850px)');
+    media.addEventListener('change', this.onResize);
   }
 
   private createElements(
@@ -36,12 +39,17 @@ export class Viewport extends BaseComponent {
     eventEmitter.emit(EventName.generateSubject, this.tag.getNode());
     subjects.forEach((item: ISubject, index: number) => {
       const isParent = Boolean(item.childs);
-      const subject = new Subject({ parent, isParent, viewParent, ...item });
+      const subject = new Subject({
+        parent,
+        isParent,
+        isChild,
+        viewParent,
+        positionInParent: index,
+        ...item,
+      });
       this.subjects.push(subject);
-      if (isChild) {
-        subject.placeChildInTheMiddleOfParent(index);
-      }
-      if (item.childs) {
+      subject.placeChildInTheMiddleOfParent();
+      if (isParent) {
         this.createElements(item.childs, subject.getNode(), true, subject.getTag());
       }
     });
@@ -68,5 +76,10 @@ export class Viewport extends BaseComponent {
     });
     winner.setInnerHTML('<span><strong>You did it!</strong><br>You rock at CSS</span>');
     this.subjects.push(winner as Subject);
+  };
+
+  private onResize = (): void => {
+    gameModel.clearTargetElements();
+    this.loadData(gameModel.getLevel());
   };
 }

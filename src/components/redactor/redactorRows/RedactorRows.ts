@@ -2,12 +2,15 @@ import './redactorRows.scss';
 import { BaseComponent } from '@/components/BaseComponent';
 
 export class RedactorRows extends BaseComponent {
-  constructor(numberOfRows: number) {
+  constructor(numberOfRows?: number) {
     super({ tag: 'ol', className: ['redactor-rows'] });
-    this.setRows(numberOfRows);
+    if (numberOfRows) {
+      this.setRows(numberOfRows);
+    }
   }
 
-  private setRows(numberOfRows: number): void {
+  public setRows(numberOfRows: number): void {
+    this.removeChildren();
     this.insertChild(
       ...Array.from({ length: numberOfRows }, (item, index) =>
         new BaseComponent({

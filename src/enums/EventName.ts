@@ -6,4 +6,5 @@ export enum EventName {
   win = 'win',
   validate = 'validate',
   onWin = 'onWin',
+  resize = 'resize',
 }

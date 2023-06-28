@@ -11,6 +11,8 @@ import { ButtonComponent } from '../button/ButtonComponent';
 export class Editor extends BaseComponent {
   private readonly redactor: RedactorEditor;
   private readonly button: ButtonComponent;
+  private readonly rows: RedactorRows;
+  private readonly text: BaseComponent;
 
   constructor() {
     super({ className: ['editor'] });
@@ -19,16 +21,10 @@ export class Editor extends BaseComponent {
       fileName: 'style.css',
     });
     const editorBody = new BaseComponent({ className: ['editor-body'] });
-    const editorRows = new RedactorRows(20);
+    this.rows = new RedactorRows();
     const redactorBody = new BaseComponent({ className: ['redactor-body'] });
-    const bodyText = new BaseComponent({ tag: 'p', className: ['comment'] });
-    bodyText.setInnerHTML(
-      '{<br>' +
-        '/* Styles would go here. */<br>' +
-        '}<br><br>' +
-        '/*<br>Type a number to skip to a level.<br>' +
-        'Ex → "5" for level 5<br>*/'
-    );
+    this.text = new BaseComponent({ tag: 'p', className: ['comment'] });
+    this.setSizeOfBody();
     this.redactor = new RedactorEditor(this.validate, editorBody.getNode());
     this.redactor.input.addEvent('keydown', (e): void => {
       if (e.key === 'Enter') {
@@ -40,13 +36,14 @@ export class Editor extends BaseComponent {
       text: 'enter',
       callback: this.validate,
     });
-    redactorBody.insertChild(this.redactor.getNode(), bodyText.getNode());
+    redactorBody.insertChild(this.redactor.getNode(), this.text.getNode());
     editorBody.insertChild(
-      editorRows.getNode(),
+      this.rows.getNode(),
       redactorBody.getNode(),
       this.button.getNode()
     );
     this.insertChild(editorHeader.getNode(), editorBody.getNode());
+    eventEmitter.on(EventName.resize, this.setSizeOfBody);
   }
 
   private getSelectedElements(value: string): NodeList {
@@ -68,5 +65,22 @@ export class Editor extends BaseComponent {
       return;
     }
     eventEmitter.emit(EventName.validate, this.getSelectedElements(value));
+  };
+
+  private setSizeOfBody = (): void => {
+    const media = window.matchMedia('(max-width: 850px)');
+    if (media.matches) {
+      this.rows.setRows(1);
+      this.text.setInnerHTML('');
+    } else {
+      this.rows.setRows(20);
+      this.text.setInnerHTML(
+        '{<br>' +
+          '/* Styles would go here. */<br>' +
+          '}<br><br>' +
+          '/*<br>Type a number to skip to a level.<br>' +
+          'Ex → "5" for level 5<br>*/'
+      );
+    }
   };
 }

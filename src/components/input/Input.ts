@@ -20,7 +20,7 @@ export class Input extends BaseComponent<HTMLInputElement> {
     super({ tag: 'input', className: [...className, 'input'], parent });
     this.element.type = type;
     this.element.setAttribute('placeholder', placeholder);
-    this.element.setAttribute('maxLength', '30');
+    this.element.setAttribute('maxLength', '25');
     this.setValue(value);
   }
 

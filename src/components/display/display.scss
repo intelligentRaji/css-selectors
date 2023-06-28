@@ -12,6 +12,7 @@
   font-weight: 400;
   text-align: center;
   margin: 20px 0;
+  padding: 0 40px;
 }
 
 .hint.button {
@@ -21,9 +22,21 @@
   border-radius: 20px;
   margin: 0 auto 40px auto;
   opacity: 0.8;
+  position: relative;
+  z-index: 100;
 }
 
 .hint.button:hover {
   text-decoration: underline;
   opacity: 1;
+}
+
+@media (max-width: 850px) {
+  .goal {
+    font-size: 35px;
+  }
+
+  .hint.button {
+    margin-bottom: 30px;
+  }
 }
