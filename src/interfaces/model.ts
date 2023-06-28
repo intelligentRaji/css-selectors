@@ -12,7 +12,7 @@ export interface IModel {
   removeCompletedLevel(level: number): void;
   addTargetElement(element: Node): void;
   getTargetElements(): Node[];
-  addHintLevel(level: number): void;
+  addHintLevel(): void;
   getHintLevels(): number[];
   reset(): void;
 }

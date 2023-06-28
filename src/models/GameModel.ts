@@ -76,8 +76,8 @@ class GameModel implements IModel {
     return this.targetElements;
   }
 
-  public addHintLevel(level: number): void {
-    this.hintLevels.push(level);
+  public addHintLevel(): void {
+    this.hintLevels.push(this.getLevel());
   }
 
   public getHintLevels(): number[] {

@@ -49,6 +49,11 @@
   top: 5px;
 }
 
+.levels .level-status.hinted {
+  top: -3px;
+  font-size: 20px;
+}
+
 .levels .number {
   color: $grey;
   width: 25px;

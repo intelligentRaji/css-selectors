@@ -72,6 +72,7 @@ export class RedactorEditor extends BaseComponent {
 
         if (++index >= hint.length) {
           clearTimeout(interval);
+          gameModel.addHintLevel();
           this.validate();
           return;
         }

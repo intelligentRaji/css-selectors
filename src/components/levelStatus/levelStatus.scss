@@ -13,3 +13,12 @@
   opacity: 0.7;
   border-color: #4cbb4a;
 }
+
+.level-status.hinted {
+  opacity: 0.7;
+  color: #4cbb4a;
+  border: none;
+  transform: rotate(0) translateY(0px);
+  font-size: 25px;
+  font-weight: 1000;
+}

@@ -31,11 +31,12 @@ export class LevelPresenter {
       selectElements.length === target.length &&
       selectElements.every((item) => target.includes(item))
     ) {
-      this.model.setCompletedLevel(this.model.getLevel());
+      const currentLevel = this.model.getLevel();
+      this.model.setCompletedLevel(currentLevel);
       eventEmitter.emit(EventName.win);
       setTimeout(() => {
-        if (this.model.getLevel() === this.model.getLevelsExist() - 1) {
-          eventEmitter.emit(EventName.onWin);
+        if (currentLevel === this.model.getLevelsExist() - 1) {
+          eventEmitter.emit(EventName.onWin, currentLevel);
           return;
         }
         this.model.plusLevel();
