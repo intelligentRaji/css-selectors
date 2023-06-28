@@ -24,9 +24,20 @@ export class LevelPresenter {
     this.model.setLevel(0);
   };
 
-  private validate = (nodes: NodeList): void => {
+  private validate = (value: string): void => {
+    if (value === '.target') {
+      eventEmitter.emit(EventName.loose);
+      return;
+    }
+
+    if (Number(value) <= this.model.getLevelsExist() && Number(value) >= 1) {
+      this.model.setLevel(Number(value) - 1);
+      return;
+    }
+
     const target = this.model.getTargetElements();
-    const selectElements = Array.from(nodes);
+    const selectElements = Array.from(document.querySelectorAll(value));
+
     if (
       selectElements.length === target.length &&
       selectElements.every((item) => target.includes(item))

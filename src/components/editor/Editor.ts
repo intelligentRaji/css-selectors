@@ -55,16 +55,7 @@ export class Editor extends BaseComponent {
   }
 
   private validate = (): void => {
-    const value = this.redactor.getValue();
-    if (value === '.target') {
-      eventEmitter.emit(EventName.loose);
-      return;
-    }
-    if (Number(value) <= gameModel.getLevelsExist() && Number(value) >= 1) {
-      gameModel.setLevel(Number(value) - 1);
-      return;
-    }
-    eventEmitter.emit(EventName.validate, this.getSelectedElements(value));
+    eventEmitter.emit(EventName.validate, this.redactor.getValue());
   };
 
   private setSizeOfBody = (): void => {
