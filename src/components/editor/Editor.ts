@@ -29,7 +29,8 @@ export class Editor extends BaseComponent {
         '/*<br>Type a number to skip to a level.<br>' +
         'Ex → "5" for level 5<br>*/'
     );
-    this.redactor = new RedactorEditor(editorBody.getNode());
+    this.redactor = new RedactorEditor(this.validate, editorBody.getNode());
+    this.redactor.input.addEvent('change', this.validate);
     this.button = new ButtonComponent({
       className: ['editor-button'],
       text: 'enter',
@@ -58,7 +59,6 @@ export class Editor extends BaseComponent {
       gameModel.setLevel(Number(value) - 1);
       return;
     }
-    console.log(1);
     eventEmitter.emit(EventName.validate, this.getSelectedElements(value));
   };
 }

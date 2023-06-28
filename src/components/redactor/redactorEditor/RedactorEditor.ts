@@ -12,8 +12,9 @@ export class RedactorEditor extends BaseComponent {
   public readonly input: Input;
   private readonly view: BaseComponent;
   private code: string = '';
+  private readonly validate: () => void;
 
-  constructor(parent?: HTMLElement) {
+  constructor(validate: () => void, parent?: HTMLElement) {
     super({ className: [`redactor-editor`], parent });
     this.input = new Input({
       className: ['redactor-editor-input'],
@@ -26,6 +27,7 @@ export class RedactorEditor extends BaseComponent {
       className: ['redactor-editor-view'],
       parent: this.element,
     });
+    this.validate = validate;
     this.view.stylize('padding', '0');
     this.input.addEvent('input', this.onInput);
     hljs.registerLanguage('css', css);
@@ -70,6 +72,7 @@ export class RedactorEditor extends BaseComponent {
 
         if (++index >= hint.length) {
           clearTimeout(interval);
+          this.validate();
           return;
         }
 
