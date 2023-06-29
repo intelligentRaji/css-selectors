@@ -4,7 +4,7 @@
   "description": "rss-css-selectors",
   "main": "app.ts",
   "scripts": {
-    "deploy": "gh-pages -d dist -e rss-css-selectors",
+    "deploy": "webpack --mode=production --node-env=production gh-pages -d dist -e rss-css-selectors",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
