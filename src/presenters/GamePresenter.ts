@@ -36,7 +36,9 @@ export class LevelPresenter {
     }
 
     const target = this.model.getTargetElements();
-    const selectElements = Array.from(document.querySelectorAll(value));
+    const selectElements = Array.from(
+      document.querySelectorAll(`.table ${value}:not(.table-edge)`)
+    );
 
     if (
       selectElements.length === target.length &&
