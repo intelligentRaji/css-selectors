@@ -36,9 +36,7 @@ export class LevelPresenter {
     }
 
     const target = this.model.getTargetElements();
-    const selectElements = Array.from(
-      document.querySelectorAll(`.table ${value}:not(.table-edge)`)
-    );
+    const selectElements = Array.from(this.getSelectedElements(value));
 
     if (
       selectElements.length === target.length &&
@@ -58,4 +56,12 @@ export class LevelPresenter {
     }
     eventEmitter.emit(EventName.loose);
   };
+
+  private getSelectedElements(value: string): NodeList {
+    try {
+      return document.querySelectorAll(`.table ${value}:not(.table-edge)`);
+    } catch (err) {
+      return document.querySelectorAll(`.table z:not(.table-edge)`);
+    }
+  }
 }
