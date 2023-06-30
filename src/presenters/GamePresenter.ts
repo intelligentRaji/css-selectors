@@ -1,7 +1,7 @@
 import { Game } from '@/components/game/Game';
 import { EventName } from '@/enums/EventName';
 import { IModel } from '@/interfaces/model';
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 
 interface IGamePresenter {
   view: Game;
@@ -25,7 +25,7 @@ export class LevelPresenter {
   };
 
   private validate = (value: string): void => {
-    if (value === '.target') {
+    if (value === '.target' || !value) {
       eventEmitter.emit(EventName.loose);
       return;
     }

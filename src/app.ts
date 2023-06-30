@@ -1,6 +1,6 @@
 import './style.scss';
 import { Game } from './components/game/Game';
-import { eventEmitter } from './services/EventEmitter';
+import { eventEmitter } from './services/eventEmitter/EventEmitter';
 import { EventName } from './enums/EventName';
 
 class App {

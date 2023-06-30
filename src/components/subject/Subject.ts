@@ -1,7 +1,7 @@
 import './subject.scss';
 import { ISubject } from '@/interfaces/subject';
 import { gameModel } from '@/models/GameModel';
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
 import { ViewerSubject } from '../viewerSubject/ViewerSubject';

@@ -1,4 +1,4 @@
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import './redactorViewer.scss';
 import { BaseComponent } from '@/components/BaseComponent';
 import { EventName } from '@/enums/EventName';

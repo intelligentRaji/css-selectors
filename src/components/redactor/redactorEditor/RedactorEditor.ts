@@ -1,6 +1,6 @@
 import './redactorEditor.scss';
 import answers from '@/json/answer.json';
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '@/components/BaseComponent';
 import { Input } from '@/components/input/Input';

@@ -1,6 +1,6 @@
 import './display.scss';
 import goals from '@/json/goal.json';
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
 import { BaseComponent } from '../BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';

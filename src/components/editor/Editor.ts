@@ -1,5 +1,5 @@
 import './editor.scss';
-import { eventEmitter } from '@/services/EventEmitter';
+import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../BaseComponent';
