@@ -1,7 +1,7 @@
 import './redactor.scss';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { Editor } from '../editor/Editor';
 import { Viewer } from '../viewer/Viewer';
 

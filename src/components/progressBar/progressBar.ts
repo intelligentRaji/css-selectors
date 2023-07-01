@@ -1,5 +1,5 @@
 import './progressBar.scss';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 export class ProgressBar extends BaseComponent {
   private readonly progress: BaseComponent;

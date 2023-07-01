@@ -1,4 +1,4 @@
-import { Observable } from '@/services/Observable';
+import { Observable } from '@/services/observable/Observable';
 
 export interface IModel {
   level: Observable<number>;

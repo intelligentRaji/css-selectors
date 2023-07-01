@@ -1,8 +1,8 @@
 import { LocalStorage } from '@/enums/LocalStorage';
-import { localStorageManager } from '@/services/LocalStorageManager';
+import { localStorageManager } from '@/services/localStoargeManager/LocalStorageManager';
 import answers from '@/json/answer.json';
 import { IModel } from '@/interfaces/model';
-import { Observable } from '@/services/Observable';
+import { Observable } from '@/services/observable/Observable';
 
 const defaultValues = {
   level: 0,

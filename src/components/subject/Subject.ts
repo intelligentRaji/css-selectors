@@ -3,7 +3,7 @@ import { ISubject } from '@/interfaces/subject';
 import { gameModel } from '@/models/GameModel';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { ViewerSubject } from '../viewerSubject/ViewerSubject';
 
 export interface SubjectConstructor extends Omit<ISubject, 'childs'> {

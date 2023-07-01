@@ -1,6 +1,6 @@
 import './levelStatus.scss';
 import { gameModel } from '@/models/GameModel';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 export class LevelStatus extends BaseComponent {
   constructor() {

@@ -2,7 +2,7 @@ import './redactorEditor.scss';
 import answers from '@/json/answer.json';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { gameModel } from '@/models/GameModel';
-import { BaseComponent } from '@/components/BaseComponent';
+import { BaseComponent } from '@/components/baseComponent/BaseComponent';
 import { Input } from '@/components/input/Input';
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';

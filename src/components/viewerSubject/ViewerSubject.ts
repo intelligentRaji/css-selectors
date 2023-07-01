@@ -1,7 +1,7 @@
 import { ISubject } from '@/interfaces/subject';
 import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 interface IViewerSubject extends Omit<ISubject, 'childs' | 'tag'> {
   tag: string;

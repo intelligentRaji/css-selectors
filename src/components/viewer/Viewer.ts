@@ -1,5 +1,5 @@
 import './viewer.scss';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { RedactorHeader } from '../redactor/redactorHeader/RedactorHeader';
 import { RedactorRows } from '../redactor/redactorRows/RedactorRows';
 import { RedactorViewer } from '../redactor/redactorViewer/RedactorViewer';

@@ -3,7 +3,7 @@ import syntaxes from '@/json/syntax.json';
 import { gameModel } from '@/models/GameModel';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { ModalComponent } from '../ModalComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
 import { LevelButton } from '../levelButton/LevelButton';

@@ -1,5 +1,5 @@
 import './levelButton.scss';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { LevelStatus } from '../levelStatus/levelStatus';
 
 export interface ILevelButton {

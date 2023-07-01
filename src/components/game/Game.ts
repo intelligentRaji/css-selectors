@@ -1,7 +1,7 @@
 import './game.scss';
 import { LevelPresenter } from '@/presenters/GamePresenter';
 import { gameModel } from '@/models/GameModel';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { Display } from '../display/Display';
 import { Redactor } from '../redactor/Redactor';
 import { ControlsAndHelpPanel } from '../controlsAndHelpPanel/controlsAndHelpPanel';

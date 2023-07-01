@@ -1,5 +1,5 @@
 import './redactorHeader.scss';
-import { BaseComponent } from '@/components/BaseComponent';
+import { BaseComponent } from '@/components/baseComponent/BaseComponent';
 
 interface IRedactorHeader {
   title: string;

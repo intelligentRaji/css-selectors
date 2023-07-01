@@ -1,5 +1,5 @@
 import './redactorRows.scss';
-import { BaseComponent } from '@/components/BaseComponent';
+import { BaseComponent } from '@/components/baseComponent/BaseComponent';
 
 export class RedactorRows extends BaseComponent {
   constructor(numberOfRows?: number) {

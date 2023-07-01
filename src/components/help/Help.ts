@@ -4,7 +4,7 @@ import titles from '@/json/title.json';
 import syntaxes from '@/json/syntax.json';
 import hints from '@/json/hint.json';
 import selectorNames from '@/json/selectorName.json';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 export class Help extends BaseComponent {
   private readonly selectorName: BaseComponent;

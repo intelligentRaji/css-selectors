@@ -1,5 +1,5 @@
 import './input.scss';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 interface IInput {
   className?: string[];

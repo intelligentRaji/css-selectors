@@ -4,7 +4,7 @@ import elements from '@/json/elements.json';
 import { gameModel } from '@/models/GameModel';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { Subject } from '../subject/Subject';
 import { ViewerSubject } from '../viewerSubject/ViewerSubject';
 

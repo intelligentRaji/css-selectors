@@ -1,5 +1,5 @@
 import './button.scss';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 
 interface IButtonComponent {
   parent?: HTMLElement;

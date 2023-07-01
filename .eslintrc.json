@@ -5,7 +5,8 @@
     "plugin:@typescript-eslint/recommended",
     "airbnb-base",
     "airbnb-typescript/base",
-    "prettier"
+    "prettier",
+    "plugin:jest-dom/recommended"
   ],
   "ignorePatterns": ["webpack.config.cjs", "jest.config.mjs", "*.js", "babel.config.cjs"],
   "parser": "@typescript-eslint/parser",
@@ -14,7 +15,7 @@
     "project": "./tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint", "import", "jest-dom"],
   "root": true,
   "rules": {
     "@typescript-eslint/array-type": ["error", { "default": "array" }],
@@ -28,6 +29,7 @@
     "curly": ["warn", "all"],
     "eol-last": "error",
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "error",
     "max-len": ["error", { "code": 120, "ignoreComments": true, "tabWidth": 2 }],
     "max-lines-per-function": ["error", 40],

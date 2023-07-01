@@ -1,8 +1,7 @@
 import './editor.scss';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { EventName } from '@/enums/EventName';
-import { gameModel } from '@/models/GameModel';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { RedactorEditor } from '../redactor/redactorEditor/RedactorEditor';
 import { RedactorHeader } from '../redactor/redactorHeader/RedactorHeader';
 import { RedactorRows } from '../redactor/redactorRows/RedactorRows';

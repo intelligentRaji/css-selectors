@@ -17,7 +17,7 @@ class EventEmitter<Callback extends (...args: Parameters<Callback>) => void> {
 
     this.events[event] = targetEvent.filter((item) => item !== callback);
 
-    if (!targetEvent.length) {
+    if (!this.events[event].length) {
       delete this.events[event];
     }
   }

@@ -1,6 +1,6 @@
 import './controlsAndHelpPanel.scss';
 import { gameModel } from '@/models/GameModel';
-import { BaseComponent } from '../BaseComponent';
+import { BaseComponent } from '../baseComponent/BaseComponent';
 import { ButtonComponent } from '../button/ButtonComponent';
 import { Controls } from '../controls/Controls';
 import { ProgressBar } from '../progressBar/progressBar';
