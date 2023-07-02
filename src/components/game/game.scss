@@ -11,6 +11,10 @@
   height: 100vh;
 }
 
+.container::-webkit-scrollbar {
+  opacity: 0;
+}
+
 @media (max-width: 850px) {
   .container {
     padding: 0 20px;
