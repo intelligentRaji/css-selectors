@@ -25,8 +25,9 @@ export class Editor extends BaseComponent {
     this.text = new BaseComponent({ tag: 'p', className: ['comment'] });
     this.setSizeOfBody();
     this.redactor = new RedactorEditor(this.validate, editorBody.getNode());
-    this.redactor.input.addEvent('keydown', (e): void => {
+    this.redactor.textarea.addEvent('keydown', (e): void => {
       if (e.key === 'Enter') {
+        e.preventDefault();
         this.validate();
       }
     });
@@ -52,7 +53,7 @@ export class Editor extends BaseComponent {
   private setSizeOfBody = (): void => {
     const media = window.matchMedia('(max-width: 850px)');
     if (media.matches) {
-      this.rows.setRows(1);
+      this.rows.setRows(2);
       this.text.setInnerHTML('');
     } else {
       this.rows.setRows(20);

@@ -506,5 +506,110 @@
         }
       ]
     }
+  ],
+  [
+    {
+      "tag": "plate",
+      "id": "fancy"
+    },
+    {
+      "tag": "plate",
+      "id": "fancy"
+    },
+    {
+      "tag": "plate",
+      "id": "fancy",
+      "childs": [
+        {
+          "tag": "apple"
+        },
+        {
+          "tag": "apple",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "id": "fancy"
+    }
+  ],
+  [
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate"
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple"
+        }
+      ]
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple"
+        },
+        {
+          "tag": "apple",
+          "className": ["small"],
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "bento"
+    }
+  ],
+  [
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "id": "fancy",
+      "childs": [
+        {
+          "tag": "orange"
+        },
+        {
+          "tag": "orange"
+        }
+      ]
+    },
+    {
+      "tag": "plate"
+    },
+    {
+      "tag": "plate",
+      "id": "fancy",
+      "childs": [
+        {
+          "tag": "orange",
+          "className": ["small"],
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "pickle"
+    }
   ]
 ]

@@ -15,5 +15,8 @@
   "Select direct children of an element",
   "Select a first child element inside of another element",
   "Select an element that are the only element inside of another one.",
-  "Select the last element inside of another element"
+  "Select the last element inside of another element",
+  "Select an element by its order in another element",
+  "",
+  "Select elements that are the only ones of their type within of their parent element"
 ]

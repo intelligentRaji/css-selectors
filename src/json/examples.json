@@ -56,5 +56,16 @@
     "<strong>:last-child</strong> selects all last-child elements.",
     "<strong>span:last-child</strong> selects all last-child <tag>span</tag> elements.",
     "<strong>ul li:last-child</strong> selects the last <tag>li</tag> elements inside of any <tag>ul</tag>."
+  ],
+  [
+    "<strong>:nth-child(8)</strong> selects every element that is the 8th child of another element.",
+    "<strong>div p:nth-child(2)</strong> selects the second <tag>p</tag> in every <tag>div</tag>"
+  ],
+  [
+    "<strong>div:nth-of-type(2)</strong> selects the second instance of a <tag>div</tag>.",
+    "<strong>.example:nth-of-type(odd)</strong> selects all odd instances of a the example class."
+  ],
+  [
+    "<strong>p span:only-of-type</strong> selects a <tag>span</tag> within any <tag>p</tag> if it is the only <tag>span</tag> in there."
   ]
 ]

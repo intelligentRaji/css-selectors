@@ -15,5 +15,8 @@
   "bento > orange",
   "bento:first-child apple:first-child",
   "*:only-child",
-  "bento orange:last-child, #fancy orange:last-child"
+  "bento orange:last-child, #fancy orange:last-child",
+  "plate:nth-child(3) apple:nth-child(2)",
+  "bento:nth-of-type(odd) apple:last-child",
+  "plate:nth-of-type(3n + 1) orange:only-of-type"
 ]

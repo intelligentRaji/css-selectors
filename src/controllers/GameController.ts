@@ -1,19 +1,15 @@
-import { Game } from '@/components/game/Game';
 import { EventName } from '@/enums/EventName';
 import { IModel } from '@/interfaces/model';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 
-interface IGamePresenter {
-  view: Game;
+interface IGameController {
   model: IModel;
 }
 
 export class LevelPresenter {
-  private readonly view: Game;
   private readonly model: IModel;
 
-  constructor({ view, model }: IGamePresenter) {
-    this.view = view;
+  constructor({ model }: IGameController) {
     this.model = model;
     eventEmitter.on(EventName.reset, this.resetProgress);
     eventEmitter.on(EventName.validate, this.validate);
@@ -37,7 +33,6 @@ export class LevelPresenter {
 
     const target = this.model.getTargetElements();
     const selectElements = Array.from(this.getSelectedElements(value));
-    console.log(selectElements);
 
     if (
       selectElements.length === target.length &&

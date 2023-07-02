@@ -3,33 +3,33 @@ import answers from '@/json/answer.json';
 import { eventEmitter } from '@/services/eventEmitter/EventEmitter';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '@/components/baseComponent/BaseComponent';
-import { Input } from '@/components/input/Input';
+import { Textarea } from '@/components/textarea/textarea';
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
 import { EventName } from '@/enums/EventName';
 
 export class RedactorEditor extends BaseComponent {
-  public readonly input: Input;
+  public readonly textarea: Textarea;
   private readonly view: BaseComponent;
   private code: string = '';
   private readonly validate: () => void;
 
   constructor(validate: () => void, parent?: HTMLElement) {
     super({ className: [`redactor-editor`], parent });
-    this.input = new Input({
-      className: ['redactor-editor-input'],
+    this.textarea = new Textarea({
+      className: ['redactor-editor-textarea'],
       placeholder: 'Type in a CSS selector',
       parent: this.element,
     });
     this.highlightIfEmpty();
     this.view = new BaseComponent({
-      tag: 'code',
+      tag: 'div',
       className: ['redactor-editor-view'],
       parent: this.element,
     });
     this.validate = validate;
     this.view.stylize('padding', '0');
-    this.input.addEvent('input', this.onInput);
+    this.textarea.addEvent('input', this.onInput);
     hljs.registerLanguage('css', css);
     eventEmitter.on(EventName.hint, this.writeHint);
     gameModel.level.subscribe(this.clearValue);
@@ -40,25 +40,26 @@ export class RedactorEditor extends BaseComponent {
   }
 
   private isEmpty(): boolean {
-    return this.input.getValue() === '';
+    return this.textarea.getValue() === '';
   }
 
   private highlightIfEmpty(): void {
     if (this.isEmpty()) {
-      this.input.addClass('empty');
+      this.textarea.addClass('empty');
     } else {
-      this.input.removeClass('empty');
+      this.textarea.removeClass('empty');
     }
   }
 
   private onInput = (): void => {
     this.highlightIfEmpty();
-    this.setCode(this.input.getValue());
+    this.setCode(this.textarea.getValue());
     this.view.setInnerHTML(hljs.highlight(this.code, { language: 'css' }).value);
+    this.changeHeightOfTextContentOnInput();
   };
 
   private writeHint = (): void => {
-    this.input.clearValue();
+    this.textarea.clearValue();
     const hint = answers[gameModel.getLevel()];
     let output = '';
     let index = 0;
@@ -66,9 +67,9 @@ export class RedactorEditor extends BaseComponent {
     const text = (): void => {
       const interval = setTimeout(() => {
         output += hint[index];
-        this.input.setValue(output);
+        this.textarea.setValue(output);
         this.onInput();
-        this.input.getNode().focus();
+        this.textarea.getNode().focus();
 
         if (++index >= hint.length) {
           clearTimeout(interval);
@@ -85,11 +86,18 @@ export class RedactorEditor extends BaseComponent {
   };
 
   public getValue(): string {
-    return this.input.getValue();
+    return this.textarea.getValue();
   }
 
   public clearValue = (): void => {
-    this.input.clearValue();
+    this.textarea.clearValue();
     this.onInput();
+  };
+
+  private changeHeightOfTextContentOnInput = (): void => {
+    const viewHeight = this.view.getNode().clientHeight;
+    if (viewHeight) {
+      this.textarea.stylize('height', `${this.view.getNode().clientHeight + 4}px`);
+    }
   };
 }

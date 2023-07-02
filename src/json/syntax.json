@@ -15,5 +15,8 @@
   "A > B",
   ":first-child",
   ":only-child",
-  ":last-child"
+  ":last-child",
+  ":nth-child(A)",
+  ":nth-of-type(A)",
+  ":only-of-type"
 ]

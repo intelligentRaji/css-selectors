@@ -1,4 +1,4 @@
-import './input.scss';
+import './textarea.scss';
 import { BaseComponent } from '../baseComponent/BaseComponent';
 
 interface IInput {
@@ -6,21 +6,12 @@ interface IInput {
   value?: string;
   placeholder?: string;
   parent?: HTMLElement;
-  type?: string;
 }
 
-export class Input extends BaseComponent<HTMLInputElement> {
-  constructor({
-    className = [],
-    parent,
-    value = '',
-    type = 'text',
-    placeholder = '',
-  }: IInput) {
-    super({ tag: 'input', className: [...className, 'input'], parent });
-    this.element.type = type;
+export class Textarea extends BaseComponent<HTMLTextAreaElement> {
+  constructor({ className = [], parent, value = '', placeholder = '' }: IInput) {
+    super({ tag: 'textarea', className: [...className, 'textarea'], parent });
     this.element.setAttribute('placeholder', placeholder);
-    this.element.setAttribute('maxLength', '36');
     this.setValue(value);
   }
 
@@ -33,6 +24,7 @@ export class Input extends BaseComponent<HTMLInputElement> {
   }
 
   public clearValue = (): void => {
+    this.stylize('height', '25px');
     this.element.value = '';
   };
 }

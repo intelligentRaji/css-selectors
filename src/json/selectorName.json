@@ -15,5 +15,8 @@
   "Child Selector",
   "First Child Pseudo-selector",
   "Only Child Pseudo-selector",
-  "Last Child Pseudo-selector"
+  "Last Child Pseudo-selector",
+  "Nth Child Pseudo-selector",
+  "Nth of Type Selector",
+  "Only of Type Selector"
 ]

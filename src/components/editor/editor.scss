@@ -26,3 +26,9 @@
   color: $lightmode-rows;
   background-color: $redactor-light-secondary-color;
 }
+
+@media (max-width: 850px) {
+  .editor-body {
+    height: 64px;
+  }
+}

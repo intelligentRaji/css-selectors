@@ -1,5 +1,5 @@
 import './game.scss';
-import { LevelPresenter } from '@/presenters/GamePresenter';
+import { LevelPresenter } from '@/controllers/GameController';
 import { gameModel } from '@/models/GameModel';
 import { BaseComponent } from '../baseComponent/BaseComponent';
 import { Display } from '../display/Display';
@@ -13,7 +13,7 @@ export class Game extends BaseComponent {
 
   constructor() {
     super({ className: ['wrapper'] });
-    this.presenter = new LevelPresenter({ view: this, model: gameModel });
+    this.presenter = new LevelPresenter({ model: gameModel });
     this.controlsAndHelpPanel = new ControlsAndHelpPanel();
     const container = new BaseComponent({
       className: ['container'],
