@@ -60,9 +60,9 @@ export class LevelPresenter {
 
   private getSelectedElements(value: string): NodeList {
     try {
-      return document.querySelectorAll(`.table ${value}:not(.table-edge)`);
+      return document.querySelectorAll(`.table ${value}`);
     } catch (err) {
-      return document.querySelectorAll(`.table z:not(.table-edge)`);
+      return document.querySelectorAll(`.table z`);
     }
   }
 }

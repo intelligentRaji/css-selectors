@@ -13,5 +13,7 @@
   "A + B",
   "A ~ B",
   "A > B",
-  ":first-child"
+  ":first-child",
+  ":only-child",
+  ":last-child"
 ]

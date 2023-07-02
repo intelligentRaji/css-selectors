@@ -13,5 +13,7 @@
   "#fancy + .small",
   "orange ~ plate pickle",
   "bento > orange",
-  "bento:first-child apple:first-child"
+  "bento:first-child apple:first-child",
+  "*:only-child",
+  "bento orange:last-child, #fancy orange:last-child"
 ]

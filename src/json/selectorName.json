@@ -13,5 +13,7 @@
   "Adjacent Sibling Selector",
   "General Sibling Selector",
   "Child Selector",
-  "First Child Pseudo-selector"
+  "First Child Pseudo-selector",
+  "Only Child Pseudo-selector",
+  "Last Child Pseudo-selector"
 ]

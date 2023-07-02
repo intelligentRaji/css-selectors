@@ -423,5 +423,88 @@
       "tag": "plate",
       "id": "fancy"
     }
+  ],
+  [
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "pickle",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple"
+        },
+        {
+          "tag": "orange",
+          "className": ["small"]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "orange"
+        },
+        {
+          "tag": "orange"
+        },
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "orange"
+        },
+        {
+          "tag": "orange",
+          "className": ["small"]
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "id": "fancy",
+      "childs": [
+        {
+          "tag": "orange"
+        },
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    }
   ]
 ]

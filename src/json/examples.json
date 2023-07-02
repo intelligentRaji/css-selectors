@@ -47,5 +47,14 @@
     "<strong>:first-child</strong> selects all first child elements.",
     "<strong>p:first-child</strong> selects all first child <tag>p</tag> elements.",
     "<strong>div p:first-child</strong> selects all first child <tag>p</tag> elements that are in a <tag>div</tag>."
+  ],
+  [
+    "<strong>span:only-child</strong> selects the <tag>span</tag> elements that are the only child of some other element.",
+    "<strong>ul li:only-child</strong> selects the only <tag>li</tag> element that are in a <tag>ul</tag>."
+  ],
+  [
+    "<strong>:last-child</strong> selects all last-child elements.",
+    "<strong>span:last-child</strong> selects all last-child <tag>span</tag> elements.",
+    "<strong>ul li:last-child</strong> selects the last <tag>li</tag> elements inside of any <tag>ul</tag>."
   ]
 ]

@@ -13,5 +13,7 @@
   "This selects all <strong>B</strong> elements that directly follow <strong>A</strong>. Elements that follow one another are called siblings. They're on the same level, or depth.<br><br>In the HTML markup for this level, elements that have the same indentation are siblings.",
   "You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.",
   "You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element.<br><br>Elements that are nested deeper than that are called descendant elements.",
-  "You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors."
+  "You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors.",
+  "You can select any element that is the only element inside of another one.",
+  "You can use this selector to select an element that is the last child element inside of another element.<br><br>Pro Tip → In cases where there is only one element, that element counts as the first-child, only-child and last-child!"
 ]

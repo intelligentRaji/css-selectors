@@ -23,7 +23,7 @@ export class Viewport extends BaseComponent {
     const tableEdge = new BaseComponent({
       tag: 'div',
       className: ['table-edge'],
-      parent: this.table.getNode(),
+      parent: this.getNode(),
     });
     eventEmitter.on(EventName.onWin, this.win);
     const media = window.matchMedia('(max-width: 850px)');
