@@ -10,6 +10,36 @@
   animation-timing-function: linear;
 }
 
+.viewport *.target {
+  animation-name: target;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.viewport *.target.small {
+  animation-name: target-small;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.viewport bento *.target,
+.viewport plate *.target {
+  animation-name: target-in-parent;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.viewport bento *.target.small,
+.viewport plate *.target.small {
+  animation-name: target-small-in-parent;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
 @keyframes selected-children {
   0% {
     transform: translateY(-30%) translateX(-45%);
@@ -27,5 +57,93 @@
 
   100% {
     transform: translateY(-2500px);
+  }
+}
+
+@keyframes target {
+  0% {
+    transform: skew(3deg) scaleY(1);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  50% {
+    transform: skew(-3deg) scaleY(1);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  100% {
+    transform: skew(3deg) scaleY(1);
+  }
+}
+
+@keyframes target-in-parent {
+  0% {
+    transform: skew(3deg) scaleY(1) translateX(-50%);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  50% {
+    transform: skew(-3deg) scaleY(1) translateX(-50%);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  100% {
+    transform: skew(3deg) scaleY(1) translateX(-50%);
+  }
+}
+
+@keyframes target-small {
+  0% {
+    transform: skew(5deg) scaleY(1);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  50% {
+    transform: skew(-5deg) scaleY(1);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9);
+  }
+
+  100% {
+    transform: skew(5deg) scaleY(1);
+  }
+}
+
+@keyframes target-small-in-parent {
+  0% {
+    transform: skew(5deg) scaleY(1) translateX(-50%);
+  }
+
+  25% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  50% {
+    transform: skew(-5deg) scaleY(1) translateX(-50%);
+  }
+
+  75% {
+    transform: skew(0deg) scaleY(0.9) translateX(-50%);
+  }
+
+  100% {
+    transform: skew(5deg) scaleY(1) translateX(-50%);
   }
 }

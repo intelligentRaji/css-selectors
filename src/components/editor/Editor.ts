@@ -45,14 +45,6 @@ export class Editor extends BaseComponent {
     eventEmitter.on(EventName.resize, this.setSizeOfBody);
   }
 
-  private getSelectedElements(value: string): NodeList {
-    try {
-      return document.querySelectorAll(`.table ${value}:not(.table-edge)`);
-    } catch (err) {
-      return document.querySelectorAll(`.table ${'z'}:not(.table-edge)`);
-    }
-  }
-
   private validate = (): void => {
     eventEmitter.emit(EventName.validate, this.redactor.getValue());
   };

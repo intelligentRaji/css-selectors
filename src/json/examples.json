@@ -28,5 +28,24 @@
     "<strong>p, .fun</strong> selects all <tag>p</tag> elements as well as all elements with <strong>class=\"fun\"</strong>",
     "<strong>a, p, div</strong> selects all <tag>a</tag>, <tag>p</tag> and <tag>div</tag> elements"
   ],
-  ["<strong>p *</strong> selects any element inside all <tag>p</tag> elements."]
+  ["<strong>p *</strong> selects any element inside all <tag>p</tag> elements."],
+  [
+    "<strong>p *</strong> selects any element inside all <tag>p</tag> elements.",
+    "<strong>ul.fancy *</strong> selects every element inside all <tag>ul</tag> <strong>class=\"fancy\"</strong> elements."
+  ],
+  [
+    "<strong>p + .intro</strong> selects every element with <strong>class=\"intro\"</strong> that directly follows a <tag>p</tag>",
+    "<strong>div + a</strong> selects every <tag>a</tag> element that directly follows a <tag>div</tag>"
+  ],
+  [
+    "<strong>A ~ B</strong> selects all <strong>B</strong> that follow a <strong>A</strong>"
+  ],
+  [
+    "<strong>A > B</strong> selects all <strong>B</strong> that are a direct children <strong>A</strong>"
+  ],
+  [
+    "<strong>:first-child</strong> selects all first child elements.",
+    "<strong>p:first-child</strong> selects all first child <tag>p</tag> elements.",
+    "<strong>div p:first-child</strong> selects all first child <tag>p</tag> elements that are in a <tag>div</tag>."
+  ]
 ]

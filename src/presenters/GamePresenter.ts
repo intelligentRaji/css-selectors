@@ -37,6 +37,7 @@ export class LevelPresenter {
 
     const target = this.model.getTargetElements();
     const selectElements = Array.from(this.getSelectedElements(value));
+    console.log(selectElements);
 
     if (
       selectElements.length === target.length &&

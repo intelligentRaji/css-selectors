@@ -57,11 +57,10 @@ export class Subject extends BaseComponent {
 
   public placeChildInTheMiddleOfParent(): void {
     if (this.isChild) {
+      const elementHeigth = this.getNode().clientHeight;
       this.stylize(
         'bottom',
-        `calc(50% - ${
-          this.getNode().clientHeight / 2 + 5 + 30 * this.positionInParent
-        }px)`
+        `calc(50% - ${elementHeigth / 2 + 5 - 15 * this.positionInParent}px)`
       );
       this.stylize('position', 'absolute');
     }

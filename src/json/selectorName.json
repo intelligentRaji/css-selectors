@@ -8,5 +8,10 @@
   "",
   "",
   "Comma Combinator",
-  "The Universal Selector"
+  "The Universal Selector",
+  "",
+  "Adjacent Sibling Selector",
+  "General Sibling Selector",
+  "Child Selector",
+  "First Child Pseudo-selector"
 ]

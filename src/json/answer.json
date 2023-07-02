@@ -8,5 +8,10 @@
   "orange.small",
   "bento orange.small",
   "plate, bento",
-  "*"
+  "*",
+  "plate *, bento *",
+  "#fancy + .small",
+  "orange ~ plate pickle",
+  "bento > orange",
+  "bento:first-child apple:first-child"
 ]

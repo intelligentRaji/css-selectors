@@ -261,5 +261,167 @@
       "id": "fancy",
       "target": true
     }
+  ],
+  [
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "apple",
+          "target": true
+        },
+        {
+          "tag": "apple",
+          "className": ["small"],
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "orange"
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "orange",
+          "target": true
+        },
+        {
+          "tag": "apple",
+          "className": ["small"],
+          "target": true
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "tag": "plate",
+      "id": "fancy"
+    },
+    {
+      "tag": "apple",
+      "className": ["small"],
+      "target": true
+    },
+    {
+      "tag": "apple",
+      "className": ["small"]
+    },
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "apple"
+        }
+      ]
+    },
+    {
+      "tag": "apple",
+      "className": ["small"]
+    }
+  ],
+  [
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "pickle"
+        }
+      ]
+    },
+    {
+      "tag": "orange"
+    },
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "pickle",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "childs": [
+        {
+          "tag": "pickle",
+          "target": true
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "plate",
+          "childs": [
+            {
+              "tag": "orange"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "orange",
+          "target": true
+        },
+        {
+          "tag": "orange",
+          "target": true
+        },
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "orange",
+          "target": true
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple",
+          "target": true
+        },
+        {
+          "tag": "apple",
+          "className": ["small"]
+        }
+      ]
+    },
+    {
+      "tag": "orange"
+    },
+    {
+      "tag": "bento",
+      "childs": [
+        {
+          "tag": "apple"
+        }
+      ]
+    },
+    {
+      "tag": "plate",
+      "id": "fancy"
+    }
   ]
 ]

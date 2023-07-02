@@ -8,5 +8,10 @@
   "Combine the Class Selector",
   "You can do it...",
   "Combine, selectors, with... commas!",
-  "You can select everything!"
+  "You can select everything!",
+  "Combine the Universal Selector",
+  "Select an element that directly follows another element",
+  "Select elements that follows another element",
+  "Select direct children of an element",
+  "Select a first child element inside of another element"
 ]

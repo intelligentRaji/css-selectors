@@ -5,12 +5,14 @@
 }
 
 .redactor-editor-input {
+  position: relative;
   color: transparent;
   caret-color: black;
   width: 100%;
   outline: none;
   background-color: transparent;
   border: none;
+  z-index: 20;
 }
 
 .redactor-editor-input.empty {
